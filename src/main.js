@@ -5,6 +5,6 @@ import HomeApp from './moduls/Home/App'
 const checkPages = () => 
 {
     const homeApp = new HomeApp()
-    // const scroll = new LocoGsap()
+        console.log();
 }
 checkPages()
