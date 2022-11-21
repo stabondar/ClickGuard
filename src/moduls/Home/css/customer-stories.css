@@ -1,0 +1,9 @@
+.stories__tab .stories__tab--border.is--hover
+{
+    transition: transform 0.3s ease;
+}
+
+.stories__tab:hover .stories__tab--border.is--hover
+{
+    transform: scaleX(1) !important;
+}

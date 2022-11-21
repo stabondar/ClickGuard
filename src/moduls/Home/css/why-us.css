@@ -1,0 +1,15 @@
+.why-us__tabs-link .why-us__tabs--descr
+{
+    transition: opacity 0.3s ease;
+    opacity: 0; 
+    display: none;
+}
+
+.w--current.why-us__tabs-link .why-us__tabs--descr
+{
+    opacity: 1;
+    display: block;
+}
+
+
+
