@@ -64,6 +64,22 @@ export default class Buttons
                 self.on('mouseleave', () => tl.reverse()) 
             })
 
+            // Footer Terms
+            $('.footer__terms-item').each(function()
+            {
+                let self = $(this)
+                let text = self.find('div')
+                let tl = gsap.timeline(
+                {
+                    paused: true, defaults: {duration: 0.3}
+                })
+
+                tl.to(text, {opacity: 0.3})
+
+                self.on('mouseenter', () => tl.restart())
+                self.on('mouseleave', () => tl.reverse()) 
+            })
+
             // Nav Login 
             $('.nav__login').each(function()
             {

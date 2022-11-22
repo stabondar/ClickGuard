@@ -38,7 +38,7 @@ export default class HomeFeatures
                 {
                     scrollTrigger: 
                     {
-                        trigger: self, start: 'top 60%', end: 'bottom 60%', scrub: 1,
+                        trigger: self, start: 'top 60%', end: 'bottom 60%', toggleActions: 'restart none restart none',
                         onEnter: () => 
                         {
                             img.removeClass('active')
@@ -51,7 +51,7 @@ export default class HomeFeatures
                         }
                     }
                 })
-                tl.to(right, {backgroundColor: bgColor, duration: 0.2})
+                tl.to(right, {backgroundColor: bgColor, duration: 0.1})
             })
         }
         window.addEventListener('load', () => init())

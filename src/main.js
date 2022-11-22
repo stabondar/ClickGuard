@@ -6,6 +6,7 @@ import Home from './moduls/Home/Home'
 import Buttons from './moduls/Buttons'
 import Loader from './moduls/Loader'
 import Text from './moduls/Text'
+import Nav from './moduls/Nav'
 
 const checkPages = () => 
 {
@@ -13,6 +14,7 @@ const checkPages = () =>
     const buttons = new Buttons()
     const loader = new Loader()
     const text = new Text()
+    const nav = new Nav()
     if($('body').attr('data-page') === 'home') { const home = new Home() }
 }
 checkPages()
