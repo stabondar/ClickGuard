@@ -107,6 +107,26 @@ export default class Nav
                 })
             }
             hoverEach()
+
+            const navScroll = () =>
+            {
+                let nav = $('.nav')
+                let trigger = $('main')
+                let height = $('.hiring').height()
+                gsap.set(nav, {top: height})
+                window.addEventListener('resize', () =>
+                {
+                    height = $('.hiring').height()
+                })
+
+                let tl = gsap.timeline(
+                {
+                    scrollTrigger: { trigger: trigger, start: 'top top', end: `+=${height}`, scrub: true }
+                })
+
+                tl.to(nav, {top: 0})
+            }
+            navScroll()
         }
         window.addEventListener('load', () => init())
     }

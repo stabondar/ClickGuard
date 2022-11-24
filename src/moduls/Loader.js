@@ -33,20 +33,20 @@ export default class Loader
             })
 
 
-            const navLoader = () =>
-            {
-                let tlNav = gsap.timeline(
-                {
-                    defaults: {duration: 0.8, ease: 'power3', stagger: 0.1}, delay: 0.3
-                })
-                let logo = $('.nav__logo')
-                let menu = $('.nav__item')
-                let login = $('.nav__login')
-                let btn = $('.nav').find('.btn')
+            // const navLoader = () =>
+            // {
+            //     let tlNav = gsap.timeline(
+            //     {
+            //         defaults: {duration: 0.8, ease: 'power3', stagger: 0.1}, delay: 0.3
+            //     })
+            //     let logo = $('.nav__logo')
+            //     let menu = $('.nav__item')
+            //     let login = $('.nav__login')
+            //     let btn = $('.nav').find('.btn')
 
-                tlNav.from([logo, menu, login, btn], {opacity: 0})
-            }
-            navLoader()
+            //     tlNav.from([logo, menu, login, btn], {opacity: 0})
+            // }
+            // navLoader()
         }
 
         window.addEventListener('load', () => init())

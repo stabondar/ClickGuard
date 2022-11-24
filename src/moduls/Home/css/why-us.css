@@ -1,11 +1,11 @@
-.why-us__tabs-link .why-us__tabs--descr
+.tabs__link .tabs__descr
 {
     transition: opacity 0.3s ease;
     opacity: 0; 
     display: none;
 }
 
-.w--current.why-us__tabs-link .why-us__tabs--descr
+.w--current.tabs__link .tabs__descr
 {
     opacity: 1;
     display: block;

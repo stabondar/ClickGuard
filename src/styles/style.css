@@ -8,6 +8,11 @@ main
   display: block;
 }
 
+.footer__terms-item.last 
+{
+    pointer-events: none;
+}
+
 ::selection
 {
   background-color: #B5F7DE;

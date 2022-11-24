@@ -47,7 +47,7 @@ export default class SmoothScroll
                 locoScroll.update()
                 setTimeout(() => {
                     ScrollTrigger.refresh()
-                }, 100);
+                }, 10);
             })
         
             let windowWidth = window.innerWidth

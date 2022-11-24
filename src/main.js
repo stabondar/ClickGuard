@@ -7,6 +7,7 @@ import Buttons from './moduls/Buttons'
 import Loader from './moduls/Loader'
 import Text from './moduls/Text'
 import Nav from './moduls/Nav'
+import Slider from './moduls/Slider'
 
 const checkPages = () => 
 {
@@ -15,7 +16,9 @@ const checkPages = () =>
     const loader = new Loader()
     const text = new Text()
     const nav = new Nav()
+    const slider = new Slider()
     if($('body').attr('data-page') === 'home') { const home = new Home() }
+    if($('body').attr('data-page') === 'pricing ') { /** */ }
 }
 checkPages()
     
