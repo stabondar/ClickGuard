@@ -1,0 +1,10 @@
+.slider__item.swiper-slide
+{
+    width: 35.07em;
+    height: 19.17em;
+}
+
+.swiper
+{
+    overflow: visible !important;
+}
