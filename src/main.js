@@ -23,6 +23,3 @@ const checkPages = () =>
     if($('body').attr('data-page') === 'pricing ') { /** */ }
 }
 checkPages()
-    
-
-console.log('abc');
