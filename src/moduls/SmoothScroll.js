@@ -46,8 +46,30 @@ export default class SmoothScroll
                 ScrollTrigger.addEventListener('refresh', () => locoScroll.update())
                 locoScroll.update()
                 setTimeout(() => {
-                    ScrollTrigger.refresh()
-                }, 10);
+                    locoScroll.update()
+                }, 100);
+            })
+
+            let triggerUpdate = $('.compare__item--top, .faq__item--top')
+
+            triggerUpdate.on('click', () => 
+            {
+                setTimeout(() => {
+                    locoScroll.update()               
+                }, 300);
+            })
+
+            // Pricing Scroll to Compare 
+            let halfSceen = - window.innerHeight / 4
+            let off = { offset: halfSceen }
+            $('.pricing__see-all').each(function(i)
+            {
+                let self = $(this)
+                let btn = self.find('.btn')
+                const slider = $(".compare")[i]
+                $(btn).on("click", function () {
+                    locoScroll.scrollTo(slider, off)
+                })
             })
         
             let windowWidth = window.innerWidth

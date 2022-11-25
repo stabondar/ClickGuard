@@ -1,0 +1,10 @@
+.compare__item--bot,
+.faq__item--bot
+{
+    height: 0;
+}
+
+.faq__icon--line.is--ab.open
+{
+    transform: translate(-50%, -50%) rotate(0deg) !important;
+}
