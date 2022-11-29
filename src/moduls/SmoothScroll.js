@@ -46,7 +46,7 @@ export default class SmoothScroll
                 ScrollTrigger.addEventListener('refresh', () => locoScroll.update())
                 locoScroll.update()
                 setTimeout(() => {
-                    locoScroll.update()
+                    ScrollTrigger.refresh()
                 }, 100);
             })
 
@@ -66,7 +66,7 @@ export default class SmoothScroll
             {
                 let self = $(this)
                 let btn = self.find('.btn')
-                const slider = $(".compare")[i]
+                const slider = $(".price-compare")[i]
                 $(btn).on("click", function () {
                     locoScroll.scrollTo(slider, off)
                 })

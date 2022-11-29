@@ -63,29 +63,22 @@ export default class Text
             let afterWidth = window.innerWidth
             if (windowWidth !== afterWidth)
             {
-                if(splitLine !== null)
-                {
-                    splitLine.revert()
-                }
-    
-                if(splitChar !== null)
-                {
-                    splitChar.revert()
-                }
+                if(splitLine != null) splitLine.revert()
+                if(splitChar != null) splitChar.revert()
+
                 init() 
             }
             windowWidth = window.innerWidth
         }
 
         function debounce(func) {
-        var timer;
-        return function (event) {
-            if (timer) clearTimeout(timer);
-            timer = setTimeout(func, 300, event);
-        };
+            var timer
+            return function (event) {
+                if (timer) clearTimeout(timer)
+                timer = setTimeout(func, 300, event)
+            }
         }
 
-        window.addEventListener("resize", debounce(function (e) {checkWidth()}))
-        // window.addEventListener('resize', () => checkWidth())
+        window.addEventListener('resize', debounce(function (e) {checkWidth()}))
     }
 }

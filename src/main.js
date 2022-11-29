@@ -20,7 +20,7 @@ const checkPages = () =>
     const nav = new Nav()
     const slider = new Slider()
     if($('body').attr('data-page') === 'home') { const home = new Home() }
-    if($('body').attr('data-page') !== 'home') { const allloader = new allLoader() }
+    if($('body').attr('allLoader') === '1') { const allloader = new allLoader() }
     if($('body').attr('data-page') === 'pricing') { const price = new Pricing() }
 }
 checkPages()

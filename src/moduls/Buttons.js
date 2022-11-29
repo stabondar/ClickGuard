@@ -10,8 +10,10 @@ export default class Buttons
 
             $('.btn').each(function()
             {   
+                let size = '1.39em'
                 let self = $(this)
                 let arrow = self.find('.btn__arrow')
+                let border = self.find('.btn__border')
                 let text = self.find('p')
 
                 let tl = gsap.timeline(
@@ -21,8 +23,7 @@ export default class Buttons
 
                 if(!self.hasClass('text')) 
                 {
-                    tl.to(text, {x: '-0.97em'})
-                    .fromTo(arrow, {xPercent: -50, opacity: 0}, {xPercent: 0, opacity: 1}, '<')
+                    tl.to(border, { top: '0em', right: '0em', width: size, height: size })
                 }
 
                 if(self.hasClass('text')) 
