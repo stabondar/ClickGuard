@@ -50,7 +50,7 @@ export default class SmoothScroll
                 }, 100);
             })
 
-            let triggerUpdate = $('.compare__item--top, .faq__item--top')
+            let triggerUpdate = $('.compare__item--top, .faq__item--top, .w-pagination-next')
 
             triggerUpdate.on('click', () => 
             {

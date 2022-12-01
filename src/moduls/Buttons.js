@@ -14,6 +14,8 @@ export default class Buttons
                 let self = $(this)
                 let arrow = self.find('.btn__arrow')
                 let border = self.find('.btn__border')
+                let borderBgParent = self.find('.btn__border--bg-parent')
+                let borderBg = self.find('.btn__border--bg')
                 let text = self.find('p')
 
                 let tl = gsap.timeline(
@@ -23,7 +25,9 @@ export default class Buttons
 
                 if(!self.hasClass('text')) 
                 {
-                    tl.to(border, { top: '0em', right: '0em', width: size, height: size })
+                    tl.from(borderBg, {xPercent: -100, yPercent: 100})
+                    .to([border, borderBgParent], { top: '0em', right: '0em', width: size, height: size }, '<0.2')
+                    .to(borderBg, {xPercent: 100, yPercent: -100}, '<0.1')
                 }
 
                 if(self.hasClass('text')) 

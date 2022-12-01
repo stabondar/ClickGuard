@@ -27,10 +27,10 @@ export default class HomeFeatures
 
             $(item).each(function(index)
             {
-                if(index === 0) {bgColor = '#B5F7DE'}
-                if(index === 1) {bgColor = '#B5D9F7'}
-                if(index === 2) {bgColor = '#9993E6'}
-                if(index === 3) {bgColor = '#F8D1AF'}
+                if(index === 0) {bgColor = '#0037FF'}
+                if(index === 1) {bgColor = '#851CFF'}
+                if(index === 2) {bgColor = '#FFCC00'}
+                if(index === 3) {bgColor = '#3BE082'}
 
                 let self = $(this)
                 let currentImg = img.eq(index)

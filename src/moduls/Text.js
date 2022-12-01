@@ -35,8 +35,7 @@ export default class Text
             const charAnimation = () => 
             {
                 let item = $('[text-char]')
-                splitChar = new SplitText(item, {type: 'words, lines'})
-                gsap.set(splitChar.lines, {overflow: 'hidden'})
+                splitChar = new SplitText(item, {type: 'words'})
                 $(item).each(function()
                 {
                     let self = $(this)
