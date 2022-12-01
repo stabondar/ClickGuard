@@ -51,7 +51,7 @@ export default class HomeFeatures
                         }
                     }
                 })
-                tl.to(right, {backgroundColor: bgColor, duration: 0.1})
+                // tl.to(right, {backgroundColor: bgColor, duration: 0.1})
             })
         }
         window.addEventListener('load', () => init())
