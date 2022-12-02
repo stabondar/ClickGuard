@@ -1,0 +1,10 @@
+.wic__left-item
+{
+    transition: opacity 0.3s ease;
+    opacity: 0.5;
+}
+
+.wic__left-item.active
+{
+    opacity: 1 !important;
+}

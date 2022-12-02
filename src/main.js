@@ -11,6 +11,7 @@ import Slider from './moduls/Slider'
 import allLoader from './moduls/allLoader'
 import Pricing from './moduls/Pricing/Pricing'
 import CustomerStories from './moduls/Home/js/CustomerStories.js'
+import WhatIs from './moduls/WhatIS/WhatIs.js'
 
 const checkPages = () => 
 {
@@ -24,5 +25,6 @@ const checkPages = () =>
     if($('body').attr('allLoader') === '1') { const allloader = new allLoader() }
     if($('body').attr('data-page') === 'pricing') { const price = new Pricing() }
     if($('body').attr('data-page') === 'customer-stories') { const tabs = new CustomerStories() }
+    if($('body').attr('data-page') === 'what-is') { const whatIs = new WhatIs() }
 }
 checkPages()

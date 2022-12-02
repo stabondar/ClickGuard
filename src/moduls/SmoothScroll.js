@@ -59,9 +59,26 @@ export default class SmoothScroll
                 }, 300);
             })
 
-            // Pricing Scroll to Compare 
             let halfSceen = - window.innerHeight / 4
             let off = { offset: halfSceen }
+
+            const whatIsPin = () =>
+            {
+                let sections = gsap.utils.toArray('[anchor]')
+                let item = $('.wic__left-item')
+                $(item).each(function(i)
+                {
+                    let self = $(this)
+                    let currentSection = sections[i]
+                    self.on('click', () => 
+                    {
+                        locoScroll.scrollTo(currentSection, off)
+                    })
+                })
+            }
+            whatIsPin()
+
+            // Pricing Scroll to Compare 
             $('.pricing__see-all').each(function(i)
             {
                 let self = $(this)
