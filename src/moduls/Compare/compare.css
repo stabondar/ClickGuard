@@ -1,0 +1,14 @@
+.compare__dp--item:last-child
+{
+    border-bottom: none;
+}
+
+.compare__dp--bot
+{
+    display: none;
+}
+
+.compare__descr p.hide
+{
+    display: none;
+}

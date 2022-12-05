@@ -50,7 +50,10 @@ export default class SmoothScroll
                 }, 100);
             })
 
-            let triggerUpdate = $('.compare__item--top, .faq__item--top, .w-pagination-next')
+            let triggerUpdate = $(`.compare__item--top, .faq__item--top, 
+            .w-pagination-next, .text-review .btn, 
+            .posts__pagination--item, .posts__next, .posts__previous, 
+            .compare__dp--item`)
 
             triggerUpdate.on('click', () => 
             {
@@ -77,6 +80,43 @@ export default class SmoothScroll
                 })
             }
             whatIsPin()
+
+            const integrationPage = () =>
+            {
+                let sections = gsap.utils.toArray('.accordion__block')
+                let item = $('.integration-accordion__point')
+                $(item).each(function(i)
+                {
+                    let self = $(this)
+                    let currentSection = sections[i]
+                    self.on('click', () => 
+                    {
+                        locoScroll.scrollTo(currentSection, off)
+                    })
+                })
+            }
+            integrationPage()
+
+            const blogTemplate = () =>
+            {
+                window.addEventListener('load', () => 
+                {
+                    setTimeout(() => {
+                        let sections = gsap.utils.toArray('.rich-text h2')
+                        let item = $('.blog-template__contents').find('.p--16')
+                        $(item).each(function(i)
+                        {
+                            let self = $(this)
+                            let currentSection = sections[i]
+                            self.on('click', () => 
+                            {
+                                locoScroll.scrollTo(currentSection, off)
+                            })
+                        })
+                    }, 100)
+                })
+            }
+            blogTemplate()
 
             // Pricing Scroll to Compare 
             $('.pricing__see-all').each(function(i)

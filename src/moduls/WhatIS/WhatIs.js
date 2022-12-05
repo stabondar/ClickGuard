@@ -28,7 +28,7 @@ export default class WhatIs
 
                 ScrollTrigger.create(
                 {
-                    trigger: self, start: 'top 60%', end: 'bottom 60%',
+                    trigger: self, start: 'top 25%', end: 'bottom 25%',
                     onEnter: () => 
                     {
                         navItems.removeClass('active')

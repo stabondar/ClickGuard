@@ -1,0 +1,9 @@
+.blog-template__contents--list p
+{
+    cursor: pointer;
+}
+
+.rich-text h2:first-child
+{
+    margin-top: 0 !important;
+}

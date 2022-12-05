@@ -1,0 +1,55 @@
+.posts__list.is--recent .posts__item:first-child
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.posts__list.is--recent .posts__item:first-child .posts__link
+{
+    flex-direction: column;
+}
+
+.posts__list.is--recent .posts__item:first-child .posts__link .posts__left
+{
+    width: 100%;
+}
+
+.posts__list.is--recent .posts__item:first-child .posts__link .posts__thumbnail 
+{
+    height: 18.19em;
+}
+
+.posts__list.is--recent .posts__item:first-child .posts__link .posts__arrow 
+{
+    display: block;
+}
+
+.posts__list.is--recent .posts__item:first-child .posts__link .posts__categories--wrapper
+{
+    margin-top: 0.83em;
+}
+
+
+/* Slider */
+.hero__slider--item.swiper-slide
+{
+    width: 21.25em !important;
+    height: 34.03em !important;
+}
+
+.hero__slider
+{
+    overflow: hidden !important;
+    padding-right: 10.6em;
+}
+
+.hero__slider--bullets.swiper-pagination-bullets.swiper-pagination-horizontal
+{
+    width: 47.22em;
+}
+
+.hero__slider--bullet.is-active
+{
+    background-color: #0037FF;
+}
