@@ -13,6 +13,12 @@ main
     pointer-events: none;
 }
 
+.form__submit--parent,
+.form__submit--parent .btn
+{
+    min-height: 100%;
+}
+
 
 ::selection
 {

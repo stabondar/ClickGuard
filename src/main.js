@@ -18,6 +18,8 @@ import About from './moduls/About/About.js'
 import BlogTemplate from './moduls/BlogTemplate/BlogTemplate.js'
 import Blog from './moduls/Blog/Blog.js'
 import Compare from './moduls/Compare/Compare.js'
+import FAQ from './moduls/FAQ'
+import InnerCompare from './moduls/InnerCompare/InnerCompare.js'
 
 const checkPages = () => 
 {
@@ -27,6 +29,7 @@ const checkPages = () =>
     const text = new Text()
     const nav = new Nav()
     const slider = new Slider()
+    const faq = new FAQ()
     if($('body').attr('data-page') === 'home') { const home = new Home() }
     if($('body').attr('allLoader') === '1') { const allloader = new allLoader() }
     if($('body').attr('data-page') === 'pricing') { const price = new Pricing() }
@@ -37,5 +40,6 @@ const checkPages = () =>
     if($('body').attr('data-page') === 'blog-template') { const blogTemplate = new BlogTemplate() }
     if($('body').attr('data-page') === 'blog') { const blog = new Blog() }
     if($('body').attr('data-page') === 'compare') { const compare = new Compare() }
+    if($('body').attr('data-page') === 'compare-inner') { const compareInner = new InnerCompare() }
 }
 checkPages()

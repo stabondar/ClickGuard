@@ -1,6 +1,13 @@
 .blog-template__contents--list p
 {
     cursor: pointer;
+    transition: opacity 0.3s ease;
+    opacity: 0.6;
+}
+
+.blog-template__contents--list p.is--active
+{
+    opacity: 1;
 }
 
 .rich-text h2:first-child

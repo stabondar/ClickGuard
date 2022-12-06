@@ -20,6 +20,30 @@ export default class About
                 })
 
                 tl.from(elem, { transformOrigin: 'top', scaleY: 0, ease: 'none' })
+
+
+                let horintalLine = $('.line__animated')
+                let circle = $('.circle')
+                let bg, origin
+
+                $(circle).each(function(i)
+                {
+                    if(i === 0) {bg = '#b5d9f7', origin = 'right'}
+                    if(i === 1) {bg = '#9993e6', origin = 'left'}
+                    if(i === 2) {bg = '#b5f7de', origin = 'right'}
+
+
+                    let self = $(this)
+                    let currentLine = horintalLine.eq(i)
+                    let tlCircle = gsap.timeline(
+                    {
+                        scrollTrigger: { trigger: self, start: 'center center', end: 'center center', toggleActions: 'play none reverse none' }
+                    })
+
+                    tlCircle.from(currentLine, { transformOrigin: origin, scaleX: 0 })
+                    .to([elem, currentLine], {backgroundColor: bg}, '<')
+                })
+
             }
             scrollLine()
 

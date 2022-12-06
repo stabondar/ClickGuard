@@ -97,6 +97,22 @@ export default class SmoothScroll
             }
             integrationPage()
 
+            const compareInner = () =>
+            {
+                let sections = gsap.utils.toArray('.comp-details__card')
+                let item = $('.comp-details__point')
+                $(item).each(function(i)
+                {
+                    let self = $(this)
+                    let currentSection = sections[i]
+                    self.on('click', () => 
+                    {
+                        locoScroll.scrollTo(currentSection, off)
+                    })
+                })
+            }
+            compareInner()
+
             const blogTemplate = () =>
             {
                 window.addEventListener('load', () => 

@@ -1,4 +1,4 @@
-.faq__icon--line.is--ab.open
+.faq__item--icon.open .faq__icon--line.is--ab
 {
     transform: translate(-50%, -50%) rotate(0deg) !important;
 }

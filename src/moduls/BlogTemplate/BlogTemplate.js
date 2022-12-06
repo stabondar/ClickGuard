@@ -27,7 +27,30 @@ export default class BlogTemplate
             {
                 let trigger = $('.blog-template__content')
                 let elem = $('.blog-template__contents')
+                let text = $('.blog-template__contents--list').find('p')
+                let title = $('.rich-text').find('h2')
                 let navHeight = $('.nav').height()
+
+                $(text).each(function(i)
+                {
+                    let self = $(this)
+                    let currentTitle = title.eq(i)
+
+                    ScrollTrigger.create(
+                    {
+                        trigger: currentTitle, start: 'top 30%', end: 'bottom 30%',
+                        onEnter: () => 
+                        {
+                            text.removeClass('is--active')
+                            self.addClass('is--active')
+                        },
+                        onEnterBack: () => 
+                        {
+                            text.removeClass('is--active')
+                            self.addClass('is--active')
+                        }
+                    })
+                })
 
 
                 ScrollTrigger.create(

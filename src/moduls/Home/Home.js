@@ -6,6 +6,7 @@ import HomeFeatures from './js/Features'
 import CustomerStories from './js/CustomerStories'
 import ScrollLines from './js/ScrollLines'
 import Loader from './js/Loader'
+import IntegrationLogos from './js/IntegrationsLogos'
 
 export default class Home 
 {
@@ -15,5 +16,6 @@ export default class Home
         const customerStories = new CustomerStories()
         const scrollLines = new ScrollLines()
         const loader = new Loader()
+        const logos = new IntegrationLogos()
     }
 }

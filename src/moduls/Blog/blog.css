@@ -53,3 +53,8 @@
 {
     background-color: #0037FF;
 }
+
+.hero__slider--bullets
+{
+    bottom: -3.13em !important;
+}

@@ -7,7 +7,7 @@ export default class Loader
         const init = () => 
         {
             let loader = $('.loader')
-            let trigger = $(`.nav__logo, .dp__products--btn, .dp__solution--btn, a.nav__item, .posts__link, .more-compare__item`)
+            let trigger = $(`.nav__logo, .dp__products--btn, .dp__solution--btn, a.nav__item, .posts__link, .more-compare__item, .footer__links-link`)
 
             const onComplete = () => { loader.css('display', 'none') }
 

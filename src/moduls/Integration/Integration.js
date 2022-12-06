@@ -59,39 +59,32 @@ export default class Integration
 
             const activeLink = () =>
             {
+                let item = $('.integration-accordion__point');
+                let trigger = $('.accordion__block')
+                $(item).each(function(index)
                 {
-                let body = $('.integration-accordion__body');
-                let left = body.find('.integration-accordion__left');
-                let item = left.find('.integration-accordion__point');
-                let bodyHeight = body.height();
 
-            $(item).each(function(index)
-            {
-
-                let self = $(this)
-                let currentTab = item.eq(index)
-                let tl = gsap.timeline(
-                {
-                    scrollTrigger: 
+                    let self = $(this)
+                    let currentTab = trigger.eq(index)
+                    ScrollTrigger.create(                        
                     {
-                        trigger: self, start: 'top 60%', end: 'bottom 60%', toggleActions: 'restart none restart none',
+                        trigger: currentTab, start: 'top 50%', end: 'bottom 50%', toggleActions: 'restart none restart none',
                         onEnter: () => 
                         {
                             item.removeClass('active')
-                            currentTab.addClass('active')
+                            self.addClass('active')
                         },
                         onEnterBack: () => 
                         {
                             item.removeClass('active')
-                            currentTab.addClass('active')
+                            self.addClass('active')
                         }
-                    }
+                    })
                 })
-            })
-        }
+            }
+            activeLink ()
 
         }
-        activeLink ()
         
         window.addEventListener('load', () => init())
     }

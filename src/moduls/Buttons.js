@@ -12,6 +12,7 @@ export default class Buttons
             {   
                 let size = '1.39em'
                 let self = $(this)
+                let parent = self.parent()
                 let arrow = self.find('.btn__arrow')
                 let border = self.find('.btn__border')
                 let borderBgParent = self.find('.btn__border--bg-parent')
@@ -33,6 +34,12 @@ export default class Buttons
                 if(self.hasClass('text')) 
                 {
                     tl.fromTo(arrow, {xPercent: -50, opacity: 0}, {xPercent: 0, opacity: 1}, '<')
+                }
+
+                if(parent.hasClass('form__submit--parent'))
+                {
+                    parent.on('mouseenter', () => tl.restart())
+                    parent.on('mouseleave', () => tl.reverse())  
                 }
 
                 self.on('mouseenter', () => tl.restart())
