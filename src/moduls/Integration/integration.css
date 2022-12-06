@@ -1,0 +1,9 @@
+.faq__icon--line.is--ab.open
+{
+    transform: translate(-50%, -50%) rotate(0deg) !important;
+}
+
+.integration-accordion__point.active {
+    color: #222222;
+    background-color: white;
+}

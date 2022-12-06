@@ -4,17 +4,17 @@
     height: 0;
 }
 
-.faq__icon--line.is--ab.open
-{
-    transform: translate(-50%, -50%) rotate(0deg) !important;
-}
-
 .price-compare__top
 {
     position: absolute;
     top: 0;
     right: 0;
     width: 100% !important;
+}
+
+.faq__icon--line.is--ab.open
+{
+    transform: translate(-50%, -50%) rotate(0deg) !important;
 }
 
 .price-compare__top--parent
