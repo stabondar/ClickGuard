@@ -96,5 +96,3 @@ export default class Integration
         window.addEventListener('load', () => init())
     }
 }
-
-
