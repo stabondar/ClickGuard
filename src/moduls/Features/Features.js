@@ -50,7 +50,19 @@ export default class Features
             }
             activeLink ()
 
-        }
+            const animatedLine = () =>
+            {
+                let trigger = $('.freatures-cards__items')
+                let elem = $('.freatures-cards__line-active ')
+                let tl = gsap.timeline(
+                {
+                    scrollTrigger: { trigger: trigger, start: 'top center', end: 'bottom center', scrub: true }
+                })
+
+                tl.from(elem, { transformOrigin: 'top', scaleY: 0, ease: 'none' })
+
+            }
+        animatedLine ()
         
         window.addEventListener('load', () => init())
     }
