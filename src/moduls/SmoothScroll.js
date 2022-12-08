@@ -17,7 +17,7 @@ export default class SmoothScroll
             locoScroll = new LocomotiveScroll({
                 el: document.querySelector('.main'),
                 smooth: true,
-                multiplier: 0.6,
+                multiplier: 1.2,
                 lerp: 0.23
             });
             locoScroll.on('scroll', ScrollTrigger.update);
@@ -112,6 +112,22 @@ export default class SmoothScroll
                 })
             }
             compareInner()
+
+            const features = () =>
+            {
+                let sections = gsap.utils.toArray('.freatures-cards__item')
+                let item = $('.freatures-cards__point')
+                $(item).each(function(i)
+                {
+                    let self = $(this)
+                    let currentSection = sections[i]
+                    self.on('click', () => 
+                    {
+                        locoScroll.scrollTo(currentSection, off)
+                    })
+                })
+            }
+            features()
 
             const blogTemplate = () =>
             {
