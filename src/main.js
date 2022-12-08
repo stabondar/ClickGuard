@@ -20,6 +20,7 @@ import Blog from './moduls/Blog/Blog.js'
 import Compare from './moduls/Compare/Compare.js'
 import FAQ from './moduls/FAQ'
 import InnerCompare from './moduls/InnerCompare/InnerCompare.js'
+import Features from './moduls/Features/Features.js'
 
 const checkPages = () => 
 {
@@ -41,5 +42,6 @@ const checkPages = () =>
     if($('body').attr('data-page') === 'blog') { const blog = new Blog() }
     if($('body').attr('data-page') === 'compare') { const compare = new Compare() }
     if($('body').attr('data-page') === 'compare-inner') { const compareInner = new InnerCompare() }
+    if($('body').attr('data-page') === 'features') { const features = new Features() }
 }
 checkPages()
