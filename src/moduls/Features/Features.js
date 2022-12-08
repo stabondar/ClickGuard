@@ -67,3 +67,4 @@ export default class Features
         window.addEventListener('load', () => init())
     }
 }
+}
