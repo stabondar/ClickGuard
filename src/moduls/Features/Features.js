@@ -62,7 +62,7 @@ export default class Features
                 tl.from(elem, { transformOrigin: 'top', scaleY: 0, ease: 'none' })
 
             }
-        animatedLine ()
+            animatedLine ()
         
         window.addEventListener('load', () => init())
     }
