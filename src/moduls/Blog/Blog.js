@@ -66,15 +66,15 @@ export default class Blog
                     const secondArrow = self.find('.posts__arrow .is--2');
                     let tl = gsap.timeline(
                     {
-                        paused: true, defaults: { duration: 0.3, ease: 'expo.out' }
+                        paused: true, defaults: { duration: 0.6, ease: 'power1' }
                     })
 
                     tl.to(postThumbnail, {scale: 1.2})
-                    .to(firstArrow, {xPercent:100, yPercent:-100})
-                    .fromTo(secondArrow, {xPercent:-100, yPercent:100}, {xPercent:0, yPercent:0})
+                    .to(firstArrow, {xPercent:100, yPercent:-100}, '<')
+                    .from(secondArrow, {xPercent:-100, yPercent:100}, '<')
 
                     self.on('mouseenter', () => tl.restart())
-                    self.on('mouseleave', () => tl.reverse())
+                    self.on('mouseleave', () => tl.timeScale(1.5).reverse())
                 })
             }
             postHover()

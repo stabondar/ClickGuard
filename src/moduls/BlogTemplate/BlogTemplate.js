@@ -59,6 +59,30 @@ export default class BlogTemplate
                 })
             }
             pinScroll()
+
+            const postHover = () =>
+            {
+                let item = $('.posts__item')
+                $(item).each(function()
+                {
+                    let self = $(this)
+                    const postThumbnail = self.find('.posts__thumbnail img');
+                    const firstArrow = self.find('.posts__arrow .is--1');
+                    const secondArrow = self.find('.posts__arrow .is--2');
+                    let tl = gsap.timeline(
+                    {
+                        paused: true, defaults: { duration: 0.6, ease: 'power1' }
+                    })
+
+                    tl.to(postThumbnail, {scale: 1.2})
+                    .to(firstArrow, {xPercent:100, yPercent:-100}, '<')
+                    .from(secondArrow, {xPercent:-100, yPercent:100}, '<')
+
+                    self.on('mouseenter', () => tl.restart())
+                    self.on('mouseleave', () => tl.timeScale(1.5).reverse())
+                })
+            }
+            postHover()
         }
         window.addEventListener('load', () => init())
     }
