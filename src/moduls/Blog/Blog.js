@@ -66,7 +66,7 @@ export default class Blog
                     const secondArrow = self.find('.posts__arrow .is--2');
                     let tl = gsap.timeline(
                     {
-                        paused: true, defaults: { duration: 0.4, ease: 'power2' }
+                        paused: true, defaults: { duration: 0.2, ease: 'power3' }
                     })
 
                     tl.to(postThumbnail, {scale: 1.2})
