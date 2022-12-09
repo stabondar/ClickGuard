@@ -78,7 +78,7 @@ export default class Blog
                 })
             }
             postHover()
-
-        window.addEventListener('load', () => init())
-    }
+      }
+      window.addEventListener('load', () => init())
+  }
 }
