@@ -53,7 +53,32 @@ export default class Blog
                     ScrollTrigger.refresh()
                 }, 200);
             })
-        }
+
+
+            const postHover = () =>
+            {
+                let item = $('.posts__item')
+                $(item).each(function()
+                {
+                    let self = $(this)
+                    const postThumbnail = self.find('.posts__thumbnail img');
+                    const firstArrow = self.find('.posts__arrow .is--1');
+                    const secondArrow = self.find('.posts__arrow .is--2');
+                    let tl = gsap.timeline(
+                    {
+                        paused: true, defaults: { duration: 0.4, ease: 'power2' }
+                    })
+
+                    tl.to(postThumbnail, {scale: 1.2})
+                    .to(firstArrow, {xPercent:100, yPercent:-100})
+                    .fromTo(secondArrow, {xPercent:-100, yPercent:100}, {xPercent:0, yPercent:0})
+
+                    self.on('mouseenter', () => tl.restart())
+                    self.on('mouseleave', () => tl.reverse())
+                })
+            }
+            postHover()
+
         window.addEventListener('load', () => init())
     }
 }
