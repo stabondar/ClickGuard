@@ -37,6 +37,9 @@ export default class SmoothScroll
                 pinType: document.querySelector('.main').style.transform ? 'transform' : 'fixed'
             });
 
+            const wrapper = document.querySelector('.main')
+            new ResizeObserver(() => locoScroll.update()).observe(wrapper)
+
             ScrollTrigger.defaults({
                 scroller: '.main'
             })
@@ -135,6 +138,10 @@ export default class SmoothScroll
                 {
                     setTimeout(() => {
                         let sections = gsap.utils.toArray('.rich-text h2')
+                        if (sections.length < 1)
+                        {
+                            sections = gsap.utils.toArray('.rich-text h3')
+                        }
                         let item = $('.blog-template__contents').find('.p--16')
                         $(item).each(function(i)
                         {

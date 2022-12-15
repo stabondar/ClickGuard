@@ -1,0 +1,26 @@
+/* Blog Hover Animation */
+.posts__link .posts__thumbnail img,
+.posts__link .posts__arrow .svg
+{
+    transition: transform 0.3s ease;
+}
+
+.posts__link .posts__arrow .svg.is--2
+{
+    transform: translate(-100%, 100%);
+}
+
+.posts__link:hover .posts__thumbnail img
+{
+    transform: scale(1.2);
+}
+
+.posts__link:hover .posts__arrow .svg.is--1
+{
+    transform: translate(100%, -100%);
+}
+
+.posts__link:hover .posts__arrow .svg.is--2
+{
+    transform: translate(0%, 0%);
+}

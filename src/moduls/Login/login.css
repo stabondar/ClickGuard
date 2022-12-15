@@ -1,0 +1,88 @@
+.hide
+{
+    display: none;
+}
+
+.iti__flag 
+{
+    background-image: url("https://uploads-ssl.webflow.com/63750a9b9f46b21855d02736/639ae5c2e501f83dc6c32419_flags.png") !important;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) 
+{
+    .iti__flag 
+    {
+        background-image: url("https://uploads-ssl.webflow.com/63750a9b9f46b21855d02736/639ae5c517e478b27191b098_flags%402x.png") !important;
+    }
+}
+
+.iti__flag-container
+{
+    width: 3.33em;
+    height: 2.36em;
+    top: 50% !important;
+    transform: translateY(-50%);
+    z-index: 2;
+    left: 0.28em !important;
+    background-color: #F3F6FA;
+    border-radius: 0.21em;
+}
+
+.iti__selected-flag
+{
+    justify-content: center;
+}
+
+.iti__flag
+{
+    transform: scale(1.5);
+    box-shadow: none !important;
+    background-color: transparent !important;
+}
+
+.iti__arrow
+{
+    width: 0.56em !important;
+    height: 0.34em !important;
+    border: none !important;
+    background-image: url(https://uploads-ssl.webflow.com/63750a9b9f46b21855d02736/639aeb7e54dd544baf8ee1d2_Phone%20Arrow.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: 0.42em !important;
+    transition: transform 0.2s ease;
+}
+
+.iti__arrow.iti__arrow--up
+{
+    transform: rotate(180deg) !important;
+}
+
+.iti--allow-dropdown input
+{
+    padding-left: 4.4vw !important;
+}
+
+.iti__country-list
+{
+    box-shadow: none !important;
+    width: 27.78em;
+    max-height: 300px !important;
+    left: 0;
+    margin: 0 !important;
+}
+
+.iti__country
+{
+    padding: 0.35em 0.69em !important;
+}
+
+/* Popup Animation */
+.login
+{
+    display: block;
+}
+
+.login.hide
+{
+    display: none;
+}

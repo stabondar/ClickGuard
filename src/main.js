@@ -1,5 +1,6 @@
 import './styles/style.css'
 import './styles/loco.css'
+import './styles/blog-hover.css'
 
 import SmoothScroll from './moduls/SmoothScroll'
 import Home from './moduls/Home/Home'
@@ -21,6 +22,7 @@ import Compare from './moduls/Compare/Compare.js'
 import FAQ from './moduls/FAQ'
 import InnerCompare from './moduls/InnerCompare/InnerCompare.js'
 import Features from './moduls/Features/Features.js'
+import Login from './moduls/Login/Login.js'
 
 const checkPages = () => 
 {
@@ -31,6 +33,7 @@ const checkPages = () =>
     const nav = new Nav()
     const slider = new Slider()
     const faq = new FAQ()
+    const login = new Login()
     if($('body').attr('data-page') === 'home') { const home = new Home() }
     if($('body').attr('allLoader') === '1') { const allloader = new allLoader() }
     if($('body').attr('data-page') === 'pricing') { const price = new Pricing() }
@@ -43,5 +46,6 @@ const checkPages = () =>
     if($('body').attr('data-page') === 'compare') { const compare = new Compare() }
     if($('body').attr('data-page') === 'compare-inner') { const compareInner = new InnerCompare() }
     if($('body').attr('data-page') === 'features') { const features = new Features() }
+
 }
 checkPages()

@@ -2,12 +2,13 @@ import './blog.css'
 
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { ScrambleTextPlugin } from 'gsap/ScrambleTextPlugin'
 import Swiper, { Pagination } from 'swiper'
 
 import 'swiper/css'
 import 'swiper/css/pagination';
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin)
 
 export default class Blog 
 {
@@ -55,30 +56,72 @@ export default class Blog
             })
 
 
-            const postHover = () =>
+            // const postHover = () =>
+            // {
+            //     let item = $('.posts__item')
+            //     $(item).each(function()
+            //     {
+            //         let self = $(this)
+            //         const postThumbnail = self.find('.posts__thumbnail img');
+            //         const firstArrow = self.find('.posts__arrow .is--1');
+            //         const secondArrow = self.find('.posts__arrow .is--2');
+            //         let tl = gsap.timeline(
+            //         {
+            //             paused: true, defaults: { duration: 0.6, ease: 'power1' }
+            //         })
+
+            //         tl.to(postThumbnail, {scale: 1.2})
+            //         .to(firstArrow, {xPercent:100, yPercent:-100}, '<')
+            //         .from(secondArrow, {xPercent:-100, yPercent:100}, '<')
+
+            //         self.on('mouseenter', () => tl.restart())
+            //         self.on('mouseleave', () => tl.timeScale(1.5).reverse())
+            //     })
+            // }
+            // postHover()
+
+            const changeTitle = () =>
             {
-                let item = $('.posts__item')
+                const item = $('.blog-tags__item')
+                const title = $('[change-title]')
                 $(item).each(function()
                 {
                     let self = $(this)
-                    const postThumbnail = self.find('.posts__thumbnail img');
-                    const firstArrow = self.find('.posts__arrow .is--1');
-                    const secondArrow = self.find('.posts__arrow .is--2');
-                    let tl = gsap.timeline(
+                    let text = self.find('.p--18').text()
+
+                    self.on('click', () => 
                     {
-                        paused: true, defaults: { duration: 0.6, ease: 'power1' }
+                        gsap.to(title, {scrambleText: {text: text}, duration: 1 })
                     })
-
-                    tl.to(postThumbnail, {scale: 1.2})
-                    .to(firstArrow, {xPercent:100, yPercent:-100}, '<')
-                    .from(secondArrow, {xPercent:-100, yPercent:100}, '<')
-
-                    self.on('mouseenter', () => tl.restart())
-                    self.on('mouseleave', () => tl.timeScale(1.5).reverse())
                 })
+
+                $('[fs-cmsfilter-element="reset"]').each(function()
+                {
+                    let self = $(this)
+
+                    self.on('click', () => 
+                    {
+                        gsap.to(title, {scrambleText: {text: 'All blog posts'}, duration: 1 })
+                    })
+                })                
             }
-            postHover()
-      }
-      window.addEventListener('load', () => init())
-  }
+            changeTitle()
+        }
+        window.addEventListener('load', () => init())
+
+        const addButton = () => 
+        {
+            const list = $('.blog-tags__list')
+            list.append(`<div class="blog-tags__item w-dyn-item" fs-cmsfilter-element="reset">
+                <label class="blog-tags__radio--parent w-radio">
+                    <input type="radio" data-name="Radio" id="radio-2" name="radio" value="Radio" class="w-form-formradioinput blog-tags__radio--icon w-radio-input">
+                    <span class="p--18 weight--700 w-form-label" for="radio">Reset</span>
+                </label>
+            </div>`)
+
+            const btn = $('[fs-cmsfilter-element="reset"]')
+            btn.on('click', () => $('.blog-tags__radio--parent').removeClass('is-active'))
+        }
+        addButton()
+    }
 }
