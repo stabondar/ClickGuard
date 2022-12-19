@@ -9,6 +9,7 @@ export default class Slider
     {
 
       let init = false;
+      let swiper;
 
       function swiperCard() {
         if (window.innerWidth >= 768) {

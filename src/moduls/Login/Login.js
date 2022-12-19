@@ -74,7 +74,7 @@ export default class Login
         {
             const login = $('.login')
             const loginBtn = $('.nav__login')
-            const logo = $('.login__logo')
+            const logo = $('.login__cross')
             login.addClass('hide')
 
             const hide = () => { login.addClass('hide') }
