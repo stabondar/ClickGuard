@@ -53,17 +53,17 @@ export default class SmoothScroll
                 }, 100);
             })
 
-            let triggerUpdate = $(`.compare__item--top, .faq__item--top, 
-            .w-pagination-next, .text-review .btn, 
-            .posts__pagination--item, .posts__next, .posts__previous, 
-            .compare__dp--item`)
+            // let triggerUpdate = $(`.compare__item--top, .faq__item--top, 
+            // .w-pagination-next, .text-review .btn, 
+            // .posts__pagination--item, .posts__next, .posts__previous, 
+            // .compare__dp--item`)
 
-            triggerUpdate.on('click', () => 
-            {
-                setTimeout(() => {
-                    locoScroll.update()               
-                }, 300);
-            })
+            // triggerUpdate.on('click', () => 
+            // {
+            //     setTimeout(() => {
+            //         locoScroll.update()               
+            //     }, 300);
+            // })
 
             let halfSceen = - window.innerHeight / 4
             let off = { offset: halfSceen }

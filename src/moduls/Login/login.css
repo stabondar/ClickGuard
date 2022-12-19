@@ -79,10 +79,10 @@
 /* Popup Animation */
 .login
 {
-    display: block;
+    display: none;
 }
 
-.login.hide
+.login.open
 {
-    display: none;
+    display: block !important;
 }

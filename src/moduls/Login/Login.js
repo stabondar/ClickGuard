@@ -77,8 +77,8 @@ export default class Login
             const logo = $('.login__cross')
             login.addClass('hide')
 
-            const hide = () => { login.addClass('hide') }
-            const open = () => { login.removeClass('hide') }
+            const hide = () => { login.removeClass('open') }
+            const open = () => { login.addClass('open') }
 
             let tl = gsap.timeline({ paused: true, onStart: open, onReverseComplete: hide })
 
@@ -89,4 +89,4 @@ export default class Login
         }
         animation()
     }
-}
+}  
