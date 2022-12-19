@@ -23,10 +23,12 @@ import FAQ from './moduls/FAQ'
 import InnerCompare from './moduls/InnerCompare/InnerCompare.js'
 import Features from './moduls/Features/Features.js'
 import Login from './moduls/Login/Login.js'
+import Scroll from './moduls/Scroll'
+import Anchors from './moduls/Anchors'
 
 const checkPages = () => 
 {
-    const smooth = new SmoothScroll()
+    const smooth = new Scroll()
     const buttons = new Buttons()
     const loader = new Loader()
     const text = new Text()
@@ -34,6 +36,7 @@ const checkPages = () =>
     const slider = new Slider()
     const faq = new FAQ()
     const login = new Login()
+    const anchor = new Anchors()
     if($('body').attr('data-page') === 'home') { const home = new Home() }
     if($('body').attr('allLoader') === '1') { const allloader = new allLoader() }
     if($('body').attr('data-page') === 'pricing') { const price = new Pricing() }

@@ -73,12 +73,12 @@ export default class Login
         const animation = () =>
         {
             const login = $('.login')
-            const loginBtn = $('.nav__login')
+            const loginBtn = $('.nav').find('.btn')
             const logo = $('.login__logo')
-            login.addClass('hide')
+            login.removeClass('open')
 
-            const hide = () => { login.addClass('hide') }
-            const open = () => { login.removeClass('hide') }
+            const hide = () => { login.removeClass('open') }
+            const open = () => { login.addClass('open') }
 
             let tl = gsap.timeline({ paused: true, onStart: open, onReverseComplete: hide })
 
@@ -89,4 +89,4 @@ export default class Login
         }
         animation()
     }
-}
+}  

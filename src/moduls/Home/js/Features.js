@@ -52,6 +52,9 @@ export default class HomeFeatures
                     }
                 })
                 // tl.to(right, {backgroundColor: bgColor, duration: 0.1})
+
+                const wrapper = document.querySelector('.main')
+                new ResizeObserver(() => ScrollTrigger.refresh(true)).observe(wrapper)
             })
         }
         window.addEventListener('load', () => init())
