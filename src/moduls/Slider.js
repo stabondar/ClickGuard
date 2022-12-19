@@ -11,7 +11,7 @@ export default class Slider
       let init = false;
 
       function swiperCard() {
-        if (window.innerWidth <= 991) {
+        if (window.innerWidth >= 768) {
           if (!init) {
             init = true;
             swiper = new Swiper(".swiper", {
@@ -25,8 +25,8 @@ export default class Slider
             });
           }
         } else if (init) {
-          swiper.destroy();
-          init = false;
+            swiper.destroy();
+            init = false;
         }
       }
       swiperCard();
