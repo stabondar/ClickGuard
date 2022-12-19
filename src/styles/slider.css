@@ -1,10 +1,10 @@
-.slider__item.swiper-slide
-{
+@media screen and (min-width: 768px) {
+  .slider__item.swiper-slide {
     width: 35.07em;
     height: 19.17em;
-}
+  }
 
-.swiper
-{
+  .swiper {
     overflow: visible !important;
+  }
 }

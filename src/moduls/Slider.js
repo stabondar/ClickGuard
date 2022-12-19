@@ -7,29 +7,55 @@ export default class Slider
 {
     constructor()
     {
-        let swiper = new Swiper(".swiper", {
-            slidesPerView: "auto",
-            keyboard: true,
-            direction: "horizontal",
-            spaceBetween: 24,
-            speed: 800,
-            touchEventsTarget: "container",
-            grabCursor: true,
-            breakpoints: {
-              320: {
-                centeredSlides: true,
-                spaceBetween: 40
-              },
-              480: {
-                centeredSlides: true,
-                spaceBetween: 60
-              },
-              991: {
-                centeredSlides: false,
-                spaceBetween: null
-              }
-            }
-        })
+
+      let init = false;
+
+      function swiperCard() {
+        if (window.innerWidth >= 768) {
+          if (!init) {
+            init = true;
+            swiper = new Swiper(".swiper", {
+              slidesPerView: "auto",
+              keyboard: true,
+              direction: "horizontal",
+              spaceBetween: 24,
+              speed: 800,
+              touchEventsTarget: "container",
+              grabCursor: true,
+            });
+          }
+        } else if (init) {
+            swiper.destroy();
+            init = false;
+        }
+      }
+      swiperCard();
+      window.addEventListener("resize", swiperCard);
+
+
+        // let swiper = new Swiper(".swiper", {
+        //     slidesPerView: "auto",
+        //     keyboard: true,
+        //     direction: "horizontal",
+        //     spaceBetween: 24,
+        //     speed: 800,
+        //     touchEventsTarget: "container",
+        //     grabCursor: true,
+        //     breakpoints: {
+        //       320: {
+        //         centeredSlides: true,
+        //         spaceBetween: 40
+        //       },
+        //       480: {
+        //         centeredSlides: true,
+        //         spaceBetween: 60
+        //       },
+        //       991: {
+        //         centeredSlides: false,
+        //         spaceBetween: null
+        //       }
+        //     }
+        // })
 
         $('.slider__arrow').eq(1).on('click', () =>
         {
