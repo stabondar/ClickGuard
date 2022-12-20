@@ -1,0 +1,47 @@
+.dp__item 
+{
+	pointer-events: none;
+}
+
+.dp__item.active 
+{
+    z-index: 2;
+    pointer-events: auto;
+}
+
+.nav__item.active .nav__item--arrow 
+{
+    transform: rotate(180deg);
+}
+
+.nav__logo--color
+{
+    display: block;
+    opacity: 0;
+}
+
+.nav__logo
+{
+    position: relative;
+    z-index: 3;
+}
+
+@media screen and (max-width: 991px)
+{
+    .dp__list
+    {
+        background-color: transparent !important;
+    }    
+
+    .nav__dp--content.open
+    {
+        display: block !important;
+    }
+
+    .nav__back
+    {
+        display: flex;
+        opacity: 0;
+        pointer-events: none;
+    }
+}

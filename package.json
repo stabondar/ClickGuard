@@ -29,6 +29,7 @@
     "gsap": "file:gsap-bonus.tgz",
     "intl-tel-input": "^17.0.19",
     "locomotive-scroll": "^4.1.4",
+    "lottie-web": "^5.10.0",
     "raw-loader": "^4.0.2",
     "swiper": "^8.4.5",
     "three": "^0.144.0",

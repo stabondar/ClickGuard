@@ -32,3 +32,11 @@ main
   -webkit-text-fill-color: #222;
   -webkit-text-stroke-color: transparent;
 }
+
+@media screen and (max-width: 991px) 
+{
+    main
+    {
+        overflow: hidden !important;
+    }    
+}
