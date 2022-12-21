@@ -18,3 +18,11 @@
     opacity: 1 !important;
 }
 
+@media screen and (max-width: 991px) 
+{
+    .feature__img 
+    {
+        position: relative;
+        opacity: 1;
+    }    
+}
