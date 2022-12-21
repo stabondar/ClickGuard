@@ -1,36 +1,3 @@
-.posts__list.is--recent .posts__item:first-child
-{
-    position: absolute;
-    left: 0;
-    top: 0;
-}
-
-.posts__list.is--recent .posts__item:first-child .posts__link
-{
-    flex-direction: column;
-}
-
-.posts__list.is--recent .posts__item:first-child .posts__link .posts__left
-{
-    width: 100%;
-}
-
-.posts__list.is--recent .posts__item:first-child .posts__link .posts__thumbnail 
-{
-    height: 18.19em;
-}
-
-.posts__list.is--recent .posts__item:first-child .posts__link .posts__arrow 
-{
-    display: block;
-}
-
-.posts__list.is--recent .posts__item:first-child .posts__link .posts__categories--wrapper
-{
-    margin-top: 0.83em;
-}
-
-
 /* Slider */
 .hero__slider--item.swiper-slide
 {
@@ -49,9 +16,11 @@
     width: 47.22em;
 }
 
-.hero__slider--bullet.is-active
+.hero__slider--bullet.is-active,
+.blog-tags__radio--parent.is-active
 {
     background-color: #0037FF;
+    color: white;
 }
 
 .hero__slider--bullets
@@ -59,5 +28,61 @@
     bottom: -3.13em !important;
 }
 
+.hero__slider--item .p--16
+{
+    --max-lines: 3;
+    display: -webkit-box;
+    -webkit-line-clamp: var(--max-lines) !important;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+}
 
 
+@media screen and (min-width: 991px) 
+{
+    .posts__list.is--recent .posts__item:first-child
+    {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .posts__list.is--recent .posts__item:first-child .posts__link
+    {
+        flex-direction: column;
+    }
+
+    .posts__list.is--recent .posts__item:first-child .posts__link .posts__left
+    {
+        width: 100%;
+    }
+
+    .posts__list.is--recent .posts__item:first-child .posts__link .posts__thumbnail 
+    {
+        height: 18.19em;
+    }
+
+    .posts__list.is--recent .posts__item:first-child .posts__link .posts__arrow 
+    {
+        display: block;
+    }
+
+    .posts__list.is--recent .posts__item:first-child .posts__link .posts__categories--wrapper
+    {
+        margin-top: 0.83em;
+    }    
+}
+
+@media screen and (max-width: 480px) 
+{
+    .hero__slider--item.swiper-slide
+    {
+        width: 64em !important;
+        height: 125.87em !important;
+    }
+
+    .hero__slider
+    {
+        padding-right: 32em;
+    }
+}

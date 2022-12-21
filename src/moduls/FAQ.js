@@ -7,6 +7,10 @@ export default class FAQ
 {
     constructor()
     {
+        let mm = gsap.matchMedia(),
+            isDesktop = '(min-width: 991px)',
+            isMobile = '(max-width: 991px)'
+
         const init = () =>
         {
             // Faq 
@@ -38,25 +42,28 @@ export default class FAQ
 
             let navHeight = $('.nav').height()
 
-            const faqPin = () =>
+            mm.add(isDesktop, () => 
             {
-                let pinItem = $('.faq__left')
-                let trigger = $('.faq__wrapper')
-                let pinHeight = pinItem.height()
-
-                ScrollTrigger.create(
+                const faqPin = () =>
                 {
-                    trigger: trigger, start: `top ${navHeight+80}`, end: `bottom ${window.innerHeight - pinHeight - navHeight}`, pin: pinItem, scrub: true, pinType: 'transform'
-                })
-
-                $('.faq__item--top').on('click', () =>
-                {
-                    setTimeout(() => {
-                        ScrollTrigger.refresh()
-                    }, 310);
-                })
-            }
-            faqPin()
+                    let pinItem = $('.faq__left')
+                    let trigger = $('.faq__wrapper')
+                    let pinHeight = pinItem.height()
+    
+                    ScrollTrigger.create(
+                    {
+                        trigger: trigger, start: `top ${navHeight+80}`, end: `bottom ${window.innerHeight - pinHeight - navHeight}`, pin: pinItem, scrub: true, pinType: 'transform'
+                    })
+    
+                    $('.faq__item--top').on('click', () =>
+                    {
+                        setTimeout(() => {
+                            ScrollTrigger.refresh()
+                        }, 310);
+                    })
+                }
+                faqPin()
+            })
         }
         window.addEventListener('load', () => init())
     }

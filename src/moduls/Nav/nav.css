@@ -9,9 +9,19 @@
     pointer-events: auto;
 }
 
-.nav__item.active .nav__item--arrow 
+.nav__item
 {
-    transform: rotate(180deg);
+    transition: color 0.3s ease;
+}
+
+.nav__item.active 
+{
+    color: #3BE082 !important;
+}
+
+.nav__item--arrow 
+{
+    display: none;
 }
 
 .nav__logo--color
@@ -28,6 +38,11 @@
 
 @media screen and (max-width: 991px)
 {
+    .nav__item--arrow 
+    {
+        display: block;
+    }
+
     .dp__list
     {
         background-color: transparent !important;

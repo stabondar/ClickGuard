@@ -3,11 +3,6 @@ main
   visibility: hidden;
 }
 
-.loader
-{
-  display: block;
-}
-
 .footer__terms-item.last 
 {
     pointer-events: none;

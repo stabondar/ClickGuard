@@ -25,6 +25,7 @@ import Features from './moduls/Features/Features.js'
 import Login from './moduls/Login/Login.js'
 import Scroll from './moduls/Scroll'
 import Anchors from './moduls/Anchors'
+import Protection from './moduls/Protection/Protection.js'
 
 const checkPages = () => 
 {
@@ -49,6 +50,7 @@ const checkPages = () =>
     if($('body').attr('data-page') === 'compare') { const compare = new Compare() }
     if($('body').attr('data-page') === 'compare-inner') { const compareInner = new InnerCompare() }
     if($('body').attr('data-page') === 'features') { const features = new Features() }
+    if($('body').attr('data-page') === 'protection') { const protection = new Protection() }
 
 }
 checkPages()

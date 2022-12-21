@@ -4,6 +4,10 @@ export default class CustomerStories
 {
     constructor()
     {
+        let mm = gsap.matchMedia(),
+            isDesktop = '(min-width: 991px)',
+            isMobile = '(max-width: 991px)'
+
         const init = () =>
         {
             let infoWrapper = $('.stories__info--wrapper')
@@ -13,7 +17,7 @@ export default class CustomerStories
             let infoHeight = infoElem.height()
             let allBorder = btn.find('.stories__tab--border.is--active')
 
-            infoList.height(infoHeight)
+            mm.add(isDesktop, () => {infoList.height(infoHeight)})
             gsap.set(infoElem, {display: 'none', opacity: 0})
             gsap.set($(infoElem).eq(0), {display: 'flex', opacity: 1})
             gsap.set($(allBorder).eq(0), {scaleX: 1})

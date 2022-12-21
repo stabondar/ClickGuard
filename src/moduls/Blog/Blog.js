@@ -30,11 +30,11 @@ export default class Blog
                     breakpoints: {
                       320: {
                         centeredSlides: true,
-                        spaceBetween: 40
+                        spaceBetween: 24
                       },
                       480: {
                         centeredSlides: true,
-                        spaceBetween: 60
+                        spaceBetween: 24
                       },
                       991: {
                         centeredSlides: false,

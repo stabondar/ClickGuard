@@ -82,10 +82,10 @@ export default class Buttons
                 let self = $(this)
                 let tl = gsap.timeline(
                 {
-                    paused: true, defaults: {duration: 0.3}
+                    paused: true, defaults: {duration: 0.1}
                 })
 
-                tl.to(self, {opacity: 0.3})
+                tl.to(self, {color: '#3BE082'})
 
                 self.on('mouseenter', () => tl.restart())
                 self.on('mouseleave', () => tl.reverse()) 

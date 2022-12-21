@@ -1,14 +1,39 @@
-.tabs__link .tabs__descr
+.tabs__link .tabs__descr,
+.tabs__link .tabs__item-bg
 {
     transition: opacity 0.3s ease;
     opacity: 0; 
     display: none;
 }
 
-.w--current.tabs__link .tabs__descr
+.w--current.tabs__link .tabs__descr,
+.w--current.tabs__link .tabs__item-bg
 {
     opacity: 1;
     display: block;
+}
+
+@media screen and (max-width: 991px) 
+{
+    .tabs__items
+    {
+        display: none;
+    }    
+
+    .tabs__link .tabs__stroke 
+    {
+        border: solid 2px transparent;
+    }
+
+    .tabs__link.w--current .tabs__stroke 
+    {
+        border-color: #3be082;
+    }
+
+    .tabs__link
+    {
+        border: none !important;
+    }
 }
 
 

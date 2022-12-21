@@ -1,27 +1,34 @@
-.automatically__tabs-menu
+@media screen and (max-width: 991px) 
 {
-    position: relative;
-    width: 100%;
-}
+    .automatically__tabs-menu
+    {
+        position: relative;
+        width: 100%;
+    }
+    
+    .automatically__tabs-link
+    {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        pointer-events: none;
+    }
 
-.automatically__tabs-link
-{
-    position: absolute;
-    left: 0;
-    top: 0;
-    pointer-events: none;
-    width: 100%;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-}
+    .automatically__tabs-link:first-child
+    {
+        position: relative;
+        pointer-events: none;
+    }
 
-.automatically__tabs-link.w--current
-{
-    opacity: 1;
-}
+    .automatically__tabs-link
+    {
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
 
-.automatically__tabs-link:first-child
-{
-    position: relative;
-    pointer-events: none;
+    .automatically__tabs-link.w--current
+    {
+        opacity: 1;
+    }
 }

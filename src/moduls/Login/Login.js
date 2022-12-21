@@ -72,9 +72,10 @@ export default class Login
 
         const animation = () =>
         {
-            const login = $('.login')
-            const loginBtn = $('.nav__login')
-            const logo = $('.login__cross')
+            const login = $('.login'),
+                  loginBtn = $('.nav__login'),
+                  logo = $('.login__cross'),
+                  btn = $('.btn')
             login.addClass('hide')
 
             const hide = () => { login.removeClass('open') }
@@ -86,6 +87,22 @@ export default class Login
 
             loginBtn.on('click', () => tl.restart())
             logo.on('click', () => tl.reverse())
+
+            $(btn).each(function()
+            {
+                let self = $(this),
+                    text = self.find('p').text()
+
+                if(text == 'Start Free Trial')
+                {
+                    self.on('click', () => tl.restart())
+                }
+
+                if(self.parent().hasClass('footer-banner__btn'))
+                {
+                    self.on('click', () => tl.restart())
+                }
+            })
         }
         animation()
     }

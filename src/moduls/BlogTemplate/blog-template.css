@@ -14,3 +14,8 @@
 {
     margin-top: 0 !important;
 }
+
+[fs-cmsnest-collection='categories']
+{
+    /* display: none; */
+}

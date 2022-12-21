@@ -8,6 +8,10 @@ export default class BlogTemplate
 {
     constructor()
     {   
+        let mm = gsap.matchMedia(),
+            isDesktop = '(min-width: 991px)',
+            isMobile = '(max-width: 991px)'
+
         const init = () =>
         {
             const rightSide = () =>
@@ -27,42 +31,45 @@ export default class BlogTemplate
             }
             rightSide()
 
-            const pinScroll = () =>
+            mm.add(isDesktop, () => 
             {
-                let trigger = $('.blog-template__content')
-                let elem = $('.blog-template__contents')
-                let text = $('.blog-template__contents--list').find('p')
-                let title = $('.rich-text').find('h2')
-                let navHeight = $('.nav').height()
-
-                $(text).each(function(i)
+                const pinScroll = () =>
                 {
-                    let self = $(this)
-                    let currentTitle = title.eq(i)
-
+                    let trigger = $('.blog-template__content')
+                    let elem = $('.blog-template__contents')
+                    let text = $('.blog-template__contents--list').find('p')
+                    let title = $('.rich-text').find('h2')
+                    let navHeight = $('.nav').height()
+    
+                    $(text).each(function(i)
+                    {
+                        let self = $(this)
+                        let currentTitle = title.eq(i)
+    
+                        ScrollTrigger.create(
+                        {
+                            trigger: currentTitle, start: 'top 30%', end: 'bottom 30%',
+                            onEnter: () => 
+                            {
+                                text.removeClass('is--active')
+                                self.addClass('is--active')
+                            },
+                            onEnterBack: () => 
+                            {
+                                text.removeClass('is--active')
+                                self.addClass('is--active')
+                            }
+                        })
+                    })
+    
+    
                     ScrollTrigger.create(
                     {
-                        trigger: currentTitle, start: 'top 30%', end: 'bottom 30%',
-                        onEnter: () => 
-                        {
-                            text.removeClass('is--active')
-                            self.addClass('is--active')
-                        },
-                        onEnterBack: () => 
-                        {
-                            text.removeClass('is--active')
-                            self.addClass('is--active')
-                        }
+                        trigger: trigger, start: `top ${navHeight + 80}`, end: 'bottom bottom', pin: elem
                     })
-                })
-
-
-                ScrollTrigger.create(
-                {
-                    trigger: trigger, start: `top ${navHeight + 80}`, end: 'bottom bottom', pin: elem
-                })
-            }
-            pinScroll()
+                }
+                pinScroll()
+            })
         }
         window.addEventListener('load', () => init())
     }

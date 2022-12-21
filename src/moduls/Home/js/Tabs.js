@@ -9,7 +9,7 @@ export default class Tabs
 
         mm.add(isMobile, () => 
         {
-            const init = () =>
+            const automatically = () =>
             {
                 let arrowLeft = $('.automatically__tabs--arrow').eq(0),
                     arrowRight = $('.automatically__tabs--arrow').eq(1),
@@ -45,7 +45,22 @@ export default class Tabs
                 })
 
             }
-            window.addEventListener('load', () => init())    
+
+            const why = () =>
+            {
+                let item = $('.tabs__link'),
+                    tab = $('.tabs-item')
+                    
+                $(item).each(function(index) 
+                {
+                    let self = $(this),
+                        currentImg = tab.eq(index).find('.tabs__item-bg')
+                    
+                    currentImg.clone().appendTo(self)
+                })
+            }
+
+            window.addEventListener('load', () => automatically(), why())    
         })
     }
 }
