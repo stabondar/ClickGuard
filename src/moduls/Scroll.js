@@ -8,15 +8,21 @@ export default class Scroll
 {
     constructor()
     {
-        ScrollSmoother.create(
+        let mm = gsap.matchMedia(),
+            isDesktop = '(min-width: 991px)'
+
+        mm.add(isDesktop, () => 
         {
-            smooth: 0.6,
-            content: '.main',
-            normalizeScroll: true, // prevents address bar from showing/hiding on most devices, solves various other browser inconsistencies
-            ignoreMobileResize: true, // skips ScrollTrigger.refresh() on mobile resizes from address bar showing/hiding
-            effects: true,
-            preventDefault: true,
-            smoothTouch: false
+            ScrollSmoother.create(
+            {
+                smooth: 0.6,
+                content: '.main',
+                normalizeScroll: true, // prevents address bar from showing/hiding on most devices, solves various other browser inconsistencies
+                ignoreMobileResize: true, // skips ScrollTrigger.refresh() on mobile resizes from address bar showing/hiding
+                effects: true,
+                preventDefault: true,
+                smoothTouch: false
+            })
         })
 
         const init = () => 

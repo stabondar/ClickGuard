@@ -12,6 +12,9 @@ export default class Burger
         {
             const init = () => 
             {
+                const noScroll = () => $('body').addClass('no-scroll')
+                const addScroll = () => $('body').removeClass('no-scroll')
+
                 let trigger = $('.nav__burger'),
                     list = $('.nav__list'),
                     logo = $('.nav__logo'),
@@ -19,8 +22,9 @@ export default class Burger
                     logoBlack = $('.nav__logo').find('.nav__logo--color'),
                     dropContent = $('.nav__dp--content'),
                     back = $('.nav__back'),
+                    navCTA = $('.nav__mob-cta'),
 
-                    tl = gsap.timeline({ paused: true, defaults: { duration: 0.3, ease: 'power3' } }),
+                    tl = gsap.timeline({ paused: true, defaults: { duration: 0.3, ease: 'power3' }, onStart: noScroll, onReverseComplete: addScroll }),
                     sequence = { frame: 0 },
                     burgerLottie = Lottie.loadAnimation(
                     {
@@ -46,6 +50,7 @@ export default class Burger
                           .to(path, {stroke: '#343741'}, '<')
                           .to(logoWhite, {opacity: 0}, '<')
                           .to(logoBlack, {opacity: 1}, '<')
+                          .from(navCTA, {opacity: 0}, '<')
 
                         tlDuration = tl.duration()
                     }, 1000);
@@ -82,10 +87,12 @@ export default class Burger
 
                     let itemTl = gsap.timeline({ paused: true, defaults: { duration: 0.3, ease: 'power3' } })
                     
-                    itemTl.to([itemLink, pricing], {xPercent: -20, opacity: 0})
-                          .fromTo(currentItemDrop, {xPercent: 20, opacity: 0, display: 'none'}, {display: 'block', xPercent: 0, opacity: 1, onStart: removeHide, onReverseComplete: addHide}, '<')
+                    itemTl.to([itemLink, pricing], {xPercent: -20, opacity: 0, pointerEvents: 'none'})
+                          .fromTo(currentItemDrop, {xPercent: 20, opacity: 0, display: 'none'}, 
+                                                   {display: 'block', xPercent: 0, opacity: 1, onStart: removeHide, onReverseComplete: addHide, pointerEvents: 'auto'}, '<')
                           .to(logo, {opacity: 0, display: 'none'}, '<')
-                          .to(back, {opacity: 1, pointerEvents: 'auto'})
+                          .to(back, {opacity: 1, pointerEvents: 'auto'}, '<')
+                          .to(navCTA, {opacity: 0, pointerEvents: 'none', xPercent: -20}, '<')
 
                     self.on('click', () => itemTl.restart())
                     back.on('click', () => itemTl.reverse())

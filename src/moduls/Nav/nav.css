@@ -44,4 +44,27 @@
         opacity: 0;
         pointer-events: none;
     }
+
+    .nav__burger
+    {
+        scale: 1.5;
+    }
+
+    .nav__list
+    {
+        touch-action: none;
+        overflow: scroll;
+        display: none;
+    }
+
+    body.no-scroll
+    {
+        overflow: hidden !important;
+    }
+
+    .nav__item:last-child,
+    .dp__solution--column:last-child
+    {
+        border-bottom: none !important;
+    }
 }
