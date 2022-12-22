@@ -20,7 +20,7 @@ export default class PricingPin
 
                 ScrollTrigger.create(
                 {
-                    trigger: trigger, start: `top ${navHeight}`, end: 'bottom bottom', pin: pinItem, scrub: true, pinType: 'transform'
+                    trigger: trigger, start: `top ${navHeight}`, end: 'bottom center', pin: pinItem, scrub: true, pinType: 'transform'
                 })
 
                 $('.price-compare__item--top').on('click', () =>

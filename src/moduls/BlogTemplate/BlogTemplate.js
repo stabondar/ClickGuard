@@ -16,10 +16,14 @@ export default class BlogTemplate
         {
             const rightSide = () =>
             {
-                let title = $('.rich-text').find('h2')
+                let title = $('.rich-text').find('h1')
                 if (title.length < 1) 
                 {
-                    title = $('.rich-text').find('h3')
+                    title = $('.rich-text').find('h2')
+                    if (title.length < 1) 
+                    {
+                        title = $('.rich-text').find('h3')
+                    }
                 }
                 let textParent = $('.blog-template__contents--list')
                 $(title).each(function()

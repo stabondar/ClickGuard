@@ -37,6 +37,11 @@
     -webkit-box-orient: vertical;
 }
 
+.blog-tags__search--field
+{
+    background-color: transparent !important;
+}
+
 
 @media screen and (min-width: 991px) 
 {

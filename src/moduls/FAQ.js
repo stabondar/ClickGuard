@@ -52,7 +52,7 @@ export default class FAQ
     
                     ScrollTrigger.create(
                     {
-                        trigger: trigger, start: `top ${navHeight+80}`, end: `bottom ${window.innerHeight - pinHeight - navHeight}`, pin: pinItem, scrub: true, pinType: 'transform'
+                        trigger: trigger, start: `top ${navHeight+80}`, end: `bottom center`, pin: pinItem, scrub: true, pinType: 'transform'
                     })
     
                     $('.faq__item--top').on('click', () =>

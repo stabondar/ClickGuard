@@ -73,7 +73,6 @@ export default class Login
         const animation = () =>
         {
             const login = $('.login'),
-                  loginBtn = $('.nav__login'),
                   logo = $('.login__cross'),
                   btn = $('.btn')
             login.addClass('hide')
@@ -85,7 +84,6 @@ export default class Login
 
             tl.from(login, { opacity: 0 })
 
-            loginBtn.on('click', () => tl.restart())
             logo.on('click', () => tl.reverse())
 
             $(btn).each(function()
@@ -94,6 +92,11 @@ export default class Login
                     text = self.find('p').text()
 
                 if(text == 'Start Free Trial')
+                {
+                    self.on('click', () => tl.restart())
+                }
+
+                if(text == 'Get protected')
                 {
                     self.on('click', () => tl.restart())
                 }

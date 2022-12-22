@@ -8,7 +8,7 @@ export default class PricingAccordion
             $('.price-compare__item--top').on('click', function () {
                 // If other item have open class => click itself
                 if (!$(this).hasClass('open')) {
-                    $('.price-compare__item--top.open').click()    
+                    // $('.price-compare__item--top.open').click()    
                 }
                 // Get bot item
                 let sibling = $(this).siblings('.price-compare__item--bot')
@@ -16,8 +16,8 @@ export default class PricingAccordion
             
                 // If this have open other items height 0
                 if ($(this).hasClass('open')) {
-                    sibling.animate({ height: '0px' }, animationDuration)
-                    $('.price-compare__item--icon').removeClass('open')
+                    // sibling.animate({ height: '0px' }, animationDuration)
+                    // $('.price-compare__item--icon').removeClass('open')
                 } else {
                     sibling.css('height', 'auto')
                     let autoHeight = sibling.height()

@@ -93,10 +93,14 @@ export default class Anchors
                 window.addEventListener('load', () => 
                 {
                     setTimeout(() => {
-                        let sections = gsap.utils.toArray('.rich-text h2')
+                        let sections = gsap.utils.toArray('.rich-text h1')
                         if (sections.length < 1)
                         {
-                            sections = gsap.utils.toArray('.rich-text h3')
+                            sections = gsap.utils.toArray('.rich-text h2')
+                            if (sections.length < 1)
+                            {
+                                sections = gsap.utils.toArray('.rich-text h3')
+                            }
                         }
                         let item = $('.blog-template__contents').find('.p--16')
                         $(item).each(function(i)
