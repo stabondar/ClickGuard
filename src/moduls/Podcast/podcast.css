@@ -3,3 +3,12 @@ iframe img
     width: 17.71em !important;
     height: 17.71em !important;
 }
+
+.podcast-template__left--link .p--18
+{
+    --max-lines: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: var(--max-lines) !important;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+}

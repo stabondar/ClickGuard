@@ -26,6 +26,7 @@ import Login from './moduls/Login/Login.js'
 import Scroll from './moduls/Scroll'
 import Anchors from './moduls/Anchors'
 import Protection from './moduls/Protection/Protection.js'
+import Podcast from './moduls/Podcast/Podcast.js'
 
 const checkPages = () => 
 {
@@ -51,6 +52,7 @@ const checkPages = () =>
     if($('body').attr('data-page') === 'compare-inner') { const compareInner = new InnerCompare() }
     if($('body').attr('data-page') === 'features') { const features = new Features() }
     if($('body').attr('data-page') === 'protection') { const protection = new Protection() }
+    if($('body').attr('data-page') === 'podcast') { const podcast = new Podcast() }
 
 }
 checkPages()
