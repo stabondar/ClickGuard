@@ -4,7 +4,7 @@ iframe img
     height: 17.71em !important;
 }
 
-.podcast-template__left--link .p--18
+.podcast-template__left--link .p--18 a
 {
     --max-lines: 1;
     display: -webkit-box;
