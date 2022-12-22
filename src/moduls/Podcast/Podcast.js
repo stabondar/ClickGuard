@@ -15,7 +15,7 @@ export default class Podcast
                     let block = $('.speakers');
                         
                     $(item).each(function() {           
-                        item.appendTo(block);
+                        block.appendTo(item);
                     })
                 }
 
