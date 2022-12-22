@@ -1,4 +1,5 @@
 import './podcast.css'
+import { gsap } from 'gsap'
 
 export default class Podcast
 {
@@ -7,17 +8,19 @@ export default class Podcast
         let mm = gsap.matchMedia();
         let isMobile = '(max-width: 767px)';
 
-            mm.add(isMobile, () => 
-            {
-                const side = () =>
-                {
-                    let item = $('.podcast-template__left');
-                    let block = $('.speakers');
+        mm.add(isMobile, () => {
 
-                    $(item).append(block);
-                }
+        const side = () => {
+
+        let item = $('.speakers');
+        let tab = $('.podcast-template__left');
+                
+        $(item).each(function() {
+          item.appendTo(tab);
+        })
+        }
 
         window.addEventListener('load', () => side())    
-    })
+        })
     }
 }
