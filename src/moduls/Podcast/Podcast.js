@@ -13,10 +13,8 @@ export default class Podcast
                 {
                     let item = $('.podcast-template__left');
                     let block = $('.speakers');
-                        
-                    $(item).each(function() {           
-                        block.appendTo(item);
-                    })
+
+                    $(item).append(block);
                 }
 
         window.addEventListener('load', () => side())    
