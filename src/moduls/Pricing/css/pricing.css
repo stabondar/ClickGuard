@@ -17,7 +17,22 @@
     transform: translate(-50%, -50%) rotate(0deg) !important;
 }
 
-/* .price-compare__top--parent
-{
-    pointer-events: none;
-} */
+@media screen and (max-width: 479px) {
+    .price-compare__top--item .btn.is--blue {
+        display: none;
+    }
+
+    .price-compare__top--item .btn.text {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 480px) {
+    .price-compare__top--item .btn.is--blue {
+        display: block;
+    }
+
+    .price-compare__top--item .btn.text {
+        display: none;
+    }
+}
