@@ -18,7 +18,8 @@
 }
 
 @media screen and (max-width: 479px) {
-    .price-compare__top--item .btn.is--blue {
+    .price-compare__top--item .btn.is--blue,
+    .price-compare__top--item.btn.is--yellow {
         display: none;
     }
 
@@ -28,7 +29,8 @@
 }
 
 @media screen and (min-width: 480px) {
-    .price-compare__top--item .btn.is--blue {
+    .price-compare__top--item .btn.is--blue,
+    .price-compare__top--item.btn.is--yellow {
         display: block;
     }
 
