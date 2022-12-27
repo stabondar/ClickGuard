@@ -22,6 +22,11 @@
     transform: translate(-50%, -50%) rotate(0deg) !important;
 }
 
+.price-compare__item--bot .price-compare__item--row:last-child
+{
+    background: none !important;
+}
+
 .price-compare__item--top.open .h--20
 {
     color: #0037ff
