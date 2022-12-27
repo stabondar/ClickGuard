@@ -16,7 +16,7 @@ export default class PricingAccordion
             
                 // If this have open other items height 0
                 if ($(this).hasClass('open')) {
-                    // sibling.animate({ height: '0px' }, animationDuration)
+                    sibling.animate({ height: '0px' }, animationDuration)
                     // $('.price-compare__item--icon').removeClass('open')
                 } else {
                     sibling.css('height', 'auto')

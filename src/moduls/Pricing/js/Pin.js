@@ -29,6 +29,8 @@ export default class PricingPin
                         ScrollTrigger.refresh()
                     }, 310);
                 })
+
+                window.addEventListener('resize', () => navHeight = $('.nav').height() )
             }
             pricingPin()
 

@@ -3,10 +3,11 @@ import './blog.css'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ScrambleTextPlugin } from 'gsap/ScrambleTextPlugin'
-import Swiper, { Pagination } from 'swiper'
+import Swiper, { Pagination, Autoplay } from 'swiper'
 
 import 'swiper/css'
 import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
 
 gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin)
 
@@ -20,13 +21,14 @@ export default class Blog
             {
                 let slider = $(this).find('.hero__slider')[0]
                 const swiper = new Swiper(slider, {
-                    modules: [Pagination],
+                    modules: [Pagination, Autoplay],
                     slidesPerView: 'auto',
                     keyboard: true,
                     // direction: "horizontal",
                     spaceBetween: 24,
                     speed: 800,
                     grabCursor: true,
+                    autoplay: true,
                     breakpoints: {
                       320: {
                         centeredSlides: true,
