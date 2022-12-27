@@ -22,22 +22,7 @@
     transform: translate(-50%, -50%) rotate(0deg) !important;
 }
 
-.price-compare__top--parent
+/* .price-compare__top--parent
 {
     pointer-events: none;
-}
-
-.price-compare__top--item
-{
-    pointer-events: auto;
-}
-
-.price-compare__item--top.open .h--20
-{
-    color: #0037ff;
-}
-
-.price-compare__item--top.open .price-compare__item--icon
-{
-    transform: rotate(90deg);
-}
+} */

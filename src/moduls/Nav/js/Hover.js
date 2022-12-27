@@ -19,7 +19,7 @@ export default class Hover
                         paused: true, defaults: {duration: 0.3}
                     })
     
-                    tl.to(self, {opacity: 0.3})
+                    tl.to(self, {opacity: 1})
     
                     self.on('mouseenter', () => tl.restart())
                     self.on('mouseleave', () => tl.reverse()) 
@@ -33,7 +33,7 @@ export default class Hover
                         paused: true, defaults: {duration: 0.3}
                     })
     
-                    tl.to(self, {opacity: 0.3})
+                    tl.to(self, {opacity: 1})
     
                     self.on('mouseenter', () => tl.restart())
                     self.on('mouseleave', () => tl.reverse()) 
