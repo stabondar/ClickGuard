@@ -46,3 +46,15 @@
 {
     pointer-events: auto;
 }
+
+@media screen and (max-width: 991px) {
+    .price-compare__top--item .btn.is--blue {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .price-compare__top--item .btn.text {
+        display: none;
+    }
+}
