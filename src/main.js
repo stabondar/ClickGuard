@@ -27,6 +27,7 @@ import Scroll from './moduls/Scroll'
 import Anchors from './moduls/Anchors'
 import Protection from './moduls/Protection/Protection.js'
 import Podcast from './moduls/Podcast/Podcast.js'
+import pressKit from './moduls/Press Kit/pressKit'
 
 const checkPages = () => 
 {
@@ -39,6 +40,7 @@ const checkPages = () =>
     const faq = new FAQ()
     const login = new Login()
     const anchor = new Anchors()
+    const press = new pressKit ()
     if($('body').attr('data-page') === 'home') { const home = new Home() }
     if($('body').attr('allLoader') === '1') { const allloader = new allLoader() }
     if($('body').attr('data-page') === 'pricing') { const price = new Pricing() }
@@ -53,6 +55,7 @@ const checkPages = () =>
     if($('body').attr('data-page') === 'features') { const features = new Features() }
     if($('body').attr('data-page') === 'protection') { const protection = new Protection() }
     if($('body').attr('data-page') === 'podcast') { const podcast = new Podcast() }
+    if($('body').attr('data-page') === 'press') { const press = new pressKit () }
 
 }
 checkPages()

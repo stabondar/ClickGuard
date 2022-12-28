@@ -127,5 +127,21 @@ export default class Anchors
                     gsap.to(window, { duration: 1, scrollTo: {y: slider, offsetY: off} })
                 })
             })
+
+            const press = () =>
+            {
+                let sections = gsap.utils.toArray('[anchor]')
+                let item = $('.legal__left-item.is--press')
+                $(item).each(function(i)
+                {
+                    let self = $(this)
+                    let currentSection = sections[i]
+                    self.on('click', () => 
+                    {
+                        gsap.to(window, { duration: 1, scrollTo: {y: currentSection, offsetY: off} })
+                    })
+                })
+            }
+            press()
     }
 }
