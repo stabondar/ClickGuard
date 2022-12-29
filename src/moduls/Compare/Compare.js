@@ -68,6 +68,24 @@ export default class Compare
                 })
             }
             dropDownItemClick()
+
+            const tooltip = () => 
+            {
+                const elem = $('.compare__tooltip')
+                $(elem).each(function()
+                {
+                    let self = $(this),
+                        content = self.find('.compare__tooltip--content'),
+                        tl = gsap.timeline({paused: true})
+
+                    tl.fromTo(content, { display: 'none' }, {display: 'block', duration: 0})
+                    .from(content, {yPercent: 10, opacity: 0})
+
+                    self.on('mouseenter', () => tl.play())
+                    self.on('mouseleave', () => tl.reverse())
+                })
+            }
+            tooltip()
         }
         window.addEventListener('load', () => init())
     }

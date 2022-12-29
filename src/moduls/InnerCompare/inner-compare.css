@@ -1,0 +1,13 @@
+.comp-details__point
+{
+    --max-lines-title: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: var(--max-lines-title) !important;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+}
+
+.compare__tooltip--content p br
+{
+    display: none;
+}

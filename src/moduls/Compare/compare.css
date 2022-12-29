@@ -12,3 +12,27 @@
 {
     display: none;
 }
+
+.compare__tooltip--content p br
+{
+    display: none;
+}
+
+.compare__tooltip .weight--500
+{
+    display: block;
+}
+
+@media screen and (max-width: 991px) 
+{
+    .compare__tooltip .weight--500
+    {
+        display: none;
+    }
+
+    .compare__tooltip--icon
+    {
+        display: flex;
+    }
+}
+
