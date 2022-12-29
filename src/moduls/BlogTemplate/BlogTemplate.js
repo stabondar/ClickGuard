@@ -74,6 +74,11 @@ export default class BlogTemplate
                 }
                 pinScroll()
             })
+
+            const richLink = $('.rich-text').find('a')
+            richLink.attr('target', '_blank')
+
+            console.log(richLink);
         }
         window.addEventListener('load', () => init())
     }

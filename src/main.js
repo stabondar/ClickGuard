@@ -28,6 +28,7 @@ import Anchors from './moduls/Anchors'
 import Protection from './moduls/Protection/Protection.js'
 import Podcast from './moduls/Podcast/Podcast.js'
 import pressKit from './moduls/Press Kit/pressKit'
+import Auth from './moduls/Auth0/Auth0'
 
 const checkPages = () => 
 {
@@ -41,6 +42,7 @@ const checkPages = () =>
     const login = new Login()
     const anchor = new Anchors()
     const press = new pressKit ()
+    const auth = new Auth()
     if($('body').attr('data-page') === 'home') { const home = new Home() }
     if($('body').attr('allLoader') === '1') { const allloader = new allLoader() }
     if($('body').attr('data-page') === 'pricing') { const price = new Pricing() }

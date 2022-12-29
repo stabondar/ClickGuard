@@ -10,19 +10,19 @@ export default class PricingToggle
     {
         const init = () =>
         {
-            let list = $('.pricing__list')
-            let price0 = list.find('.h--56').eq(0)
-            let price1 = list.find('.h--56').eq(1)
-            let price2 = list.find('.h--56').eq(2)
-            let toggle = $('.pricing__toggle--btn')
-            let circle = toggle.find('.pricing__toggle--circle')
-            let annual = $('.pricing__toggle').find('p').eq(0)
-            let monthly = $('.pricing__toggle').find('p').eq(1)
-            let chars = '$1234567890'
-            let tl = gsap.timeline(
-            {
-                paused: true
-            })
+            let list = $('.pricing__list'),
+                price0 = list.find('.h--56').eq(0),
+                price1 = list.find('.h--56').eq(1),
+                price2 = list.find('.h--56').eq(2),
+                toggle = $('.pricing__toggle--btn'),
+                circle = toggle.find('.pricing__toggle--circle'),
+                annual = $('.pricing__toggle').find('p').eq(0),
+                monthly = $('.pricing__toggle').find('p').eq(1),
+                chars = '$1234567890',
+                tl = gsap.timeline(
+                {
+                    paused: true
+                })
 
             gsap.set(annual, {color: '#0037ff', fontWeight: 700})
 
@@ -56,7 +56,34 @@ export default class PricingToggle
                     burgerClicks[counter]()
                     counter++
                 })
+            })  
+
+            /**
+             * Drop Down Fucntions
+             */
+            let dropdown = $('.pricing__dp'),
+                dropdownTop = $('.pricing__dp--top'),
+                dropdownList = $('.pricing__dp--list'),
+                dropdownItem = $('.pricing__dp--item'),
+                dropdownArrow = $('.pricing__dp--arrow'),
+                dropdownTl = gsap.timeline({ paused: true, defaults: { duration: 0.3 }, onComplete: () => dropdown.addClass('open') })
+
+            dropdownTl.from(dropdownList, {display: 'none', duration: 0})
+                      .from(dropdownList, {opacity: 0, yPercent: 4}, '<')
+                      .to(dropdownArrow, {rotate: 0}, '<')
+
+            $('body').on('click', (event) => 
+            {
+                let target = $(event.target)
+                if(target.closest('.pricing__dp').length > 0 )
+                {
+                    dropdownTl.play()
+                } else
+                {
+                    dropdownTl.reverse()
+                }
             })
+
         }
         window.addEventListener('load', () => init())
     }

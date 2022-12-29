@@ -42,6 +42,24 @@
     background-color: transparent !important;
 }
 
+.posts__item--title .h--24
+{
+    --max-lines-title: 2;
+    display: -webkit-box;
+    -webkit-line-clamp: var(--max-lines-title) !important;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+}
+
+.posts__item--title .p--16
+{
+    --max-lines-descr: 3;
+    display: -webkit-box;
+    -webkit-line-clamp: var(--max-lines-descr) !important;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+}
+
 
 @media screen and (min-width: 991px) 
 {
