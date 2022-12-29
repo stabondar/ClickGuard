@@ -6,13 +6,16 @@ export default class Auth
     {
         let authConfig = 
         {
-            domain: 'dev-lsbg5leb.us.auth0.com',
-            client_id: 'lPgAOCvlK9et7xn3ZyYCoFjYXPqNxbfX',
-            audience: 'ApiClickGuardDev',
-            scope: 'read:current_user update:current_user_metadata',
-            connections: {
-                google: 'google-oauth2',
-                email: 'Username-Password-Authentication'
+            domain: 'auth.clickguard.com', 
+            client_id: 'c6aN8OFe7QywZiJO24OOB6qbYSoClBAp', 
+            audience: 'clickguard-api', 
+            scope: 'read:current_user update:current_user_metadata', 
+            connections: 
+            { 
+                google: 'google-oauth2', 
+                facebook: 'facebook', 
+                linkedin: 'linkedin', 
+                email: 'Username-Password-Authentication' 
             }
         }
 
@@ -22,18 +25,25 @@ export default class Auth
             clientID: authConfig.client_id,
             audience: authConfig.audience,
             scope: authConfig.scope,
-            redirectUri: window.location.origin,
+            redirectUri: 'https://beta.clickguard.com',
             responseType: 'token',
         })
 
         window.addEventListener('load', () => 
         {
-            $(".login__grid--item.is--google").on('click', () =>
+            $(".login__grid--item").eq(0).on('click', () =>
             {
-                authClient.authorize(
-                    {
-                    connection: authConfig.connections.google
-                })
+                authClient.authorize({ connection: authConfig.connections.google })
+            })
+
+            $(".login__grid--item").eq(1).on('click', () =>
+            {
+                authClient.authorize({ connection: authConfig.connections.linkedin })
+            })
+            
+            $(".login__grid--item").eq(3).on('click', () =>
+            {
+                authClient.authorize({ connection: authConfig.connections.facebook })
             })
 
             let form = $('.login__form--list'),
@@ -56,7 +66,6 @@ export default class Auth
             name.on('keyup', () => 
             {
                 nameVal = name.val()
-                console.log(nameVal);
             })
 
 
