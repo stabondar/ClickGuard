@@ -7,6 +7,10 @@ export default class PricingPin
 {
     constructor()
     {
+        let mm = gsap.matchMedia(),
+            isDesktop = '(min-width: 991px)',
+            isMobile = '(max-width: 991px)'
+
         const init = () =>
         {
             let navHeight = $('.nav').height()
@@ -31,6 +35,11 @@ export default class PricingPin
                 })
 
                 window.addEventListener('resize', () => navHeight = $('.nav').height() )
+
+                mm.add(isMobile, () => 
+                {
+                    console.log(navHeight);
+                })
             }
             pricingPin()
 

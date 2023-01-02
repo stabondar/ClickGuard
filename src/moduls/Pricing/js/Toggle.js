@@ -74,16 +74,12 @@ export default class PricingToggle
                 if(!toggle.hasClass('switched')) 
                 { 
                     tl.restart()
-
                     mountlyRun()
-
                     mounthlyTL.restart()
                 } else 
                 { 
                     tl.timeScale(1.5).reverse()
-
                     annualRun()
-
                     annualTL.restart()
                 }
                 toggle.toggleClass('switched')
@@ -133,12 +129,10 @@ export default class PricingToggle
                     if(toggle.hasClass('switched')) 
                     {
                         mountlyRun()
-    
                         mounthlyTL.restart()
                     } else 
                     {
                         annualRun()
-    
                         annualTL.restart()
                     }
                 })

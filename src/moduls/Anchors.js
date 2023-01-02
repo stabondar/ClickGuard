@@ -88,6 +88,22 @@ export default class Anchors
             }
             legals()
 
+            const pressKit = () =>
+            {
+                let sections = gsap.utils.toArray('.legal__item')
+                let item = $('.legal__left-item')
+                $(item).each(function(i)
+                {
+                    let self = $(this)
+                    let currentSection = sections[i]
+                    self.on('click', () => 
+                    {
+                        gsap.to(window, { duration: 1, scrollTo: {y: currentSection, offsetY: off} })
+                    })
+                })
+            }
+            pressKit()
+
             const blogTemplate = () =>
             {
                 window.addEventListener('load', () => 

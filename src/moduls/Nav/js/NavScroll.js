@@ -7,30 +7,29 @@ export default class NavScroll
 {
     constructor()
     {
-        // let mm = gsap.matchMedia(),
-        //     isDesktop = '(min-width: 991px)'
+        let mm = gsap.matchMedia(),
+            isDesktop = '(min-width: 991px)'
 
-        // mm.add(isDesktop, () => 
-        // {
-        //     const init = () =>
-        //     {
-        //         let nav = $('.nav')
-        //         let trigger = $('main')
-        //         let height = $('.hiring').height()
-        //         gsap.set(nav, {top: height})
-        //         window.addEventListener('resize', () =>
-        //         {
-        //             height = $('.hiring').height()
-        //         })
+        mm.add(isDesktop, () => 
+        {
+            const init = () =>
+            {
+                let nav = $('.nav'),
+                    trigger = $('main'),
+                    navScroll = $('.nav__scroll'),
+                    tl = gsap.timeline(
+                    {
+                        scrollTrigger: { trigger: trigger, start: 'top top', end: `+=200`, scrub: true }
+                    }),
+                    tlSecond = gsap.timeline(
+                    {
+                        scrollTrigger: { trigger: trigger, start: '300 top', end: `+=200`, scrub: true }
+                    })
     
-        //         let tl = gsap.timeline(
-        //         {
-        //             scrollTrigger: { trigger: trigger, start: 'top top', end: `+=${height}`, scrub: true }
-        //         })
-    
-        //         tl.to(nav, {top: 0})
-        //     }
-        //     window.addEventListener('load', () => init())
-        // })
+                tl.to(nav, {y: -200, ease: 'none'})
+                tlSecond.to(navScroll, {y: 220})
+            }
+            window.addEventListener('load', () => init())
+        })
     }
 }
