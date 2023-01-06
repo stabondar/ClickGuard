@@ -19,13 +19,14 @@ export default class pressKit
             let sections = gsap.utils.toArray('[anchor]')
             let navItems = $('.legal__left-item.is--press')
 
-            ScrollTrigger.create(
-            {
-                trigger: trigger, start: `top ${navHeight + 50}`, end: 'bottom bottom', pin: pinElem
-            })
-
+            
             mm.add(isDesktop, () => 
             {
+                ScrollTrigger.create(
+                {
+                    trigger: trigger, start: `top ${navHeight + 50}`, end: 'bottom bottom', pin: pinElem
+                })
+                
                 $(sections).each(function(i)
                 {
                     let self = $(this)
