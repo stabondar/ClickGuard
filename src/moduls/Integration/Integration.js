@@ -17,9 +17,22 @@ export default class Integration
                 let trigger = $('.integration-accordion__info')
                 let pinHeight = pinItem.height()
 
+                let mm = gsap.matchMedia();
+
+                mm.add("(min-width: 991px)", () => {
+
                 ScrollTrigger.create(
-                {
+                    {
                     trigger: trigger, start: `top ${navHeight}`, end: 'bottom bottom', pin: pinItem, scrub: true, pinType: 'transform'
+                    })
+                });
+
+                mm.add("(max-width: 990px)", () => {
+
+                ScrollTrigger.create(
+                    {
+                    trigger: trigger, start: `top ${navHeight}`, end: 'bottom center', pin: pinItem, scrub: true, pinType: 'transform'
+                    })
                 })
             }
             leftPin()
