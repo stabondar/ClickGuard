@@ -7,6 +7,10 @@ export default class pressKit
 {
     constructor()
     {   
+        let mm = gsap.matchMedia(),
+            isDesktop = '(min-width: 991px)',
+            isMobile = '(max-width: 991px)'
+
         const init = () =>
         {
             let navHeight = $('.nav').height()
@@ -20,24 +24,27 @@ export default class pressKit
                 trigger: trigger, start: `top ${navHeight + 50}`, end: 'bottom bottom', pin: pinElem
             })
 
-            $(sections).each(function(i)
+            mm.add(isDesktop, () => 
             {
-                let self = $(this)
-                let currentNavItem = navItems.eq(i)
-
-                ScrollTrigger.create(
+                $(sections).each(function(i)
                 {
-                    trigger: self, start: 'top 25%', end: 'bottom 25%',
-                    onEnter: () => 
+                    let self = $(this)
+                    let currentNavItem = navItems.eq(i)
+    
+                    ScrollTrigger.create(
                     {
-                        navItems.removeClass('active')
-                        currentNavItem.addClass('active')
-                    },
-                    onEnterBack: () => 
-                    {
-                        navItems.removeClass('active')
-                        currentNavItem.addClass('active')
-                    }
+                        trigger: self, start: 'top 25%', end: 'bottom 25%',
+                        onEnter: () => 
+                        {
+                            navItems.removeClass('active')
+                            currentNavItem.addClass('active')
+                        },
+                        onEnterBack: () => 
+                        {
+                            navItems.removeClass('active')
+                            currentNavItem.addClass('active')
+                        }
+                    })
                 })
             })
         }

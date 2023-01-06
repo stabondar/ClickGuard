@@ -60,7 +60,7 @@ export default class InnerCompare
                     tl.fromTo(content, { display: 'none' }, {display: 'block', duration: 0})
                     .from(content, {yPercent: 10, opacity: 0})
 
-                    self.on('mouseenter', () => tl.restart())
+                    self.on('mouseenter', () => tl.play())
                     self.on('mouseleave', () => tl.reverse())
                 })
             }
