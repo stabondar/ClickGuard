@@ -43,9 +43,11 @@ export default class PricingToggle
                 monthlyText = $('.pricing__toggle').find('p').eq(1),
                 chars = '$1234567890',
                 tl = gsap.timeline( { paused: true, defaults: { ease: 'none' } }),
-                mounthlyTL = gsap.timeline( { paused: true, defaults: { ease: 'none', duration: 1 } }),
-                annualTL = gsap.timeline( { paused: true, defaults: { ease: 'none', duration: 1 } })
+                mounthlyTL = gsap.timeline( { paused: true, defaults: { ease: 'none' } }),
+                annualTL = gsap.timeline( { paused: true, defaults: { ease: 'none' } }),
+                pricingChecked = $('.pricing__dp--checked')
 
+            pricingChecked.eq(0).addClass('active')
             gsap.set(annualText, {color: '#0037ff', fontWeight: 700})
 
             tl.to(circle, {xPercent: 98})
@@ -55,17 +57,17 @@ export default class PricingToggle
             const mountlyRun = () =>
             {
                 mounthlyTL.clear()
-                mounthlyTL.to(price0, {scrambleText: {text: monthlyVal[0], chars: chars} })
-                .to(price1, {scrambleText: {text: monthlyVal[1], chars: chars} }, '<')
-                .to(price2, {scrambleText: {text: monthlyVal[2], chars: chars} }, '<')
+                mounthlyTL.to(price0, {text: monthlyVal[0]})
+                .to(price1, {text: monthlyVal[1]}, '<')
+                .to(price2, {text: monthlyVal[2]}, '<')
             }
 
             const annualRun = () =>
             {
                 annualTL.clear()
-                annualTL.to(price0, {scrambleText: {text: annualVal[0], chars: chars} })
-                .to(price1, {scrambleText: {text: annualVal[1], chars: chars} }, '<')
-                .to(price2, {scrambleText: {text: annualVal[2], chars: chars} }, '<')
+                annualTL.to(price0, {text: annualVal[0]})
+                .to(price1, {text: annualVal[1]}, '<')
+                .to(price2, {text: annualVal[2]}, '<')
             }
 
             //  Double Click Function
@@ -114,7 +116,9 @@ export default class PricingToggle
 
             $(dropdownItem).each(function(index)
             {
-                let self = $(this)
+                let self = $(this),
+                    selfCkecked = self.find('.pricing__dp--checked')
+
                 self.on('click', () => 
                 {
                     currencyText = self.find('p').text()
@@ -135,6 +139,9 @@ export default class PricingToggle
                         annualRun()
                         annualTL.restart()
                     }
+
+                    pricingChecked.removeClass('active')
+                    selfCkecked.addClass('active')
                 })
             })
 
