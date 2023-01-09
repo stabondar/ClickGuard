@@ -22,9 +22,20 @@ export default class PricingPin
                 topItem.height(pinItem.outerHeight())
                 let trigger = $('.price-compare__chart')
 
-                ScrollTrigger.create(
+                mm.add(isDesktop, () =>
                 {
-                    trigger: trigger, start: `top ${navHeight}`, end: 'bottom center', pin: pinItem, scrub: true, pinType: 'transform'
+                    ScrollTrigger.create(
+                    {
+                        trigger: trigger, start: `top ${navHeight}`, end: 'bottom center', pin: pinItem, scrub: true, pinType: 'transform'
+                    })
+                })
+
+                mm.add(isMobile, () =>
+                {
+                    ScrollTrigger.create(
+                    {
+                        trigger: trigger, start: `top ${navHeight}`, end: 'bottom center', pin: pinItem, scrub: true, pinType: 'fixed'
+                    })
                 })
 
                 $('.price-compare__item--top').on('click', () =>
@@ -35,11 +46,6 @@ export default class PricingPin
                 })
 
                 window.addEventListener('resize', () => navHeight = $('.nav').height() )
-
-                mm.add(isMobile, () => 
-                {
-                    console.log(navHeight);
-                })
             }
             pricingPin()
 

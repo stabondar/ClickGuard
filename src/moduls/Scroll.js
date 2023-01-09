@@ -13,7 +13,7 @@ export default class Scroll
 
         mm.add(isDesktop, () => 
         {
-            ScrollSmoother.create(
+            this.scroll = ScrollSmoother.create(
             {
                 smooth: 0.6,
                 content: '.main',

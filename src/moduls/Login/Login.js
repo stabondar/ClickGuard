@@ -2,13 +2,22 @@ import './login.css'
 
 import intlTelInput from 'intl-tel-input'
 import { gsap } from 'gsap'
+import { ScrollSmoother } from 'gsap/ScrollSmoother'
 import 'intl-tel-input/build/css/intlTelInput.css'
 
+import Experience from '../../Experience'
+
+gsap.registerPlugin(ScrollSmoother)
 
 export default class Login 
 {
     constructor()
     {
+        this.experience = new Experience()
+        let smooth = this.experience.smooth.scroll
+
+        console.log(smooth);
+
         const form = () =>
         {
             let input = document.querySelector('[type="tel"]'),
@@ -84,7 +93,7 @@ export default class Login
 
             tl.from(login, { opacity: 0 })
 
-            logo.on('click', () => tl.reverse())
+            logo.on('click', () => {tl.reverse(), smooth.paused(false)})
 
 
             $(btn).each(function()
@@ -94,58 +103,58 @@ export default class Login
 
                 if(text == 'Start Free Trial')
                 {
-                    self.on('click', () => tl.restart())
+                    self.on('click', () => {tl.restart(), smooth.paused(true)})
                 }
-
+                
                 if(text == 'Get protected')
                 {
-                    self.on('click', () => tl.restart())
+                    self.on('click', () => {tl.restart(), smooth.paused(true)})
                 }
-
+                
                 if(self.parent().hasClass('footer-banner__btn'))
                 {
-                    self.on('click', () => tl.restart())
+                    self.on('click', () => {tl.restart(), smooth.paused(true)})
                 }
             })
         }
         animation()
 
-        const stopScroll = () =>
-        {
-            const showDialog = () => {
-                const scrollY = document.documentElement.style.getPropertyValue('--scroll-y');
-                const body = document.body;
-                body.style.position = 'fixed';
-                body.style.top = `-${scrollY}`;
-              };
+        // const stopScroll = () =>
+        // {
+        //     const showDialog = () => {
+        //         const scrollY = document.documentElement.style.getPropertyValue('--scroll-y');
+        //         const body = document.body;
+        //         body.style.position = 'fixed';
+        //         body.style.top = `-${scrollY}`;
+        //       };
 
-              const closeDialog = () => {
-                const body = document.body;
-                const scrollY = body.style.top;
-                body.style.position = '';
-                body.style.top = '';
-                window.scrollTo(0, parseInt(scrollY || '0') * -1);
-              }
+        //       const closeDialog = () => {
+        //         const body = document.body;
+        //         const scrollY = body.style.top;
+        //         body.style.position = '';
+        //         body.style.top = '';
+        //         window.scrollTo(0, parseInt(scrollY || '0') * -1);
+        //       }
 
-              window.addEventListener('scroll', () => {
-                document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);
-              });
+        //       window.addEventListener('scroll', () => {
+        //         document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);
+        //       });
 
 
-           let btn = $('.btn');
-            $(btn).each(function()
-                {
-                let self = $(this);
-                let text = self.find('p').text();
+        //    let btn = $('.btn');
+        //     $(btn).each(function()
+        //         {
+        //         let self = $(this);
+        //         let text = self.find('p').text();
 
-                if(text === 'Start Free Trial' || text === 'Get protected' || self.parent().hasClass('footer-banner__btn'))
-                {
-                    self.on('click', () => showDialog());
-                }
+        //         if(text === 'Start Free Trial' || text === 'Get protected' || self.parent().hasClass('footer-banner__btn'))
+        //         {
+        //             self.on('click', () => showDialog());
+        //         }
 
-                $('.login__cross').on('click', () => closeDialog());  
-            });
-        }
-        stopScroll()
+        //         $('.login__cross').on('click', () => closeDialog());  
+        //     });
+        // }
+        // // stopScroll()
     }
 }  
