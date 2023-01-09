@@ -86,6 +86,7 @@ export default class Login
 
             logo.on('click', () => tl.reverse())
 
+
             $(btn).each(function()
             {
                 let self = $(this),
@@ -109,6 +110,42 @@ export default class Login
         }
         animation()
 
-        
+        const stopScroll = () =>
+        {
+            const showDialog = () => {
+                const scrollY = document.documentElement.style.getPropertyValue('--scroll-y');
+                const body = document.body;
+                body.style.position = 'fixed';
+                body.style.top = `-${scrollY}`;
+              };
+
+              const closeDialog = () => {
+                const body = document.body;
+                const scrollY = body.style.top;
+                body.style.position = '';
+                body.style.top = '';
+                window.scrollTo(0, parseInt(scrollY || '0') * -1);
+              }
+
+              window.addEventListener('scroll', () => {
+                document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);
+              });
+
+
+           let btn = $('.btn');
+            $(btn).each(function()
+                {
+                let self = $(this);
+                let text = self.find('p').text();
+
+                if(text === 'Start Free Trial' || text === 'Get protected' || self.parent().hasClass('footer-banner__btn'))
+                {
+                    self.on('click', () => showDialog());
+                }
+
+                $('.login__cross').on('click', () => closeDialog());  
+            });
+        }
+        stopScroll()
     }
 }  
