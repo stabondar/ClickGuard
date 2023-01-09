@@ -51,7 +51,7 @@
     -webkit-box-orient: vertical;
 }
 
-.posts__item--title .p--16
+.posts__content .p--16
 {
     --max-lines-descr: 3;
     display: -webkit-box;
