@@ -34,7 +34,7 @@ export default class PricingPin
                 {
                     ScrollTrigger.create(
                     {
-                        trigger: trigger, start: `top ${navHeight}`, end: 'bottom center', pin: pinItem, scrub: true, pinType: 'fixed'
+                        trigger: trigger, start: `top ${navHeight}`, end: 'bottom center', pin: pinItem, scrub: true
                     })
                 })
 
