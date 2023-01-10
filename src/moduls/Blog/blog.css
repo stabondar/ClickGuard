@@ -94,6 +94,10 @@
     {
         margin-top: 0.83em;
     }    
+
+    .posts__list.is--recent .posts__item:first-child .posts__link .posts__item--title    {
+        padding-right: 4em;
+    }    
 }
 
 @media screen and (max-width: 480px) 
