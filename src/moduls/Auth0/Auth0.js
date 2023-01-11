@@ -25,7 +25,7 @@ export default class Auth
             clientID: authConfig.client_id,
             audience: authConfig.audience,
             scope: authConfig.scope,
-            redirectUri: 'https://beta.clickguard.com',
+            redirectUri: 'https://app.clickguard.com',
             responseType: 'token',
         })
 
