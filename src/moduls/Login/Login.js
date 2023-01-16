@@ -101,20 +101,25 @@ export default class Login
                 let self = $(this),
                     text = self.find('p').text()
 
-                if(text == 'Start Free Trial')
+                if(text === 'Start Free Trial' || text === 'Get protected' || text === 'Free audit' || self.parent().hasClass('footer-banner__btn'))
                 {
                     self.on('click', () => {tl.restart(), smooth.paused(true)})
                 }
+
+                // if(text == 'Start Free Trial')
+                // {
+                //     self.on('click', () => {tl.restart(), smooth.paused(true)})
+                // }
                 
-                if(text == 'Get protected')
-                {
-                    self.on('click', () => {tl.restart(), smooth.paused(true)})
-                }
+                // if(text == 'Get protected')
+                // {
+                //     self.on('click', () => {tl.restart(), smooth.paused(true)})
+                // }
                 
-                if(self.parent().hasClass('footer-banner__btn'))
-                {
-                    self.on('click', () => {tl.restart(), smooth.paused(true)})
-                }
+                // if(self.parent().hasClass('footer-banner__btn'))
+                // {
+                //     self.on('click', () => {tl.restart(), smooth.paused(true)})
+                // }
             })
         }
         animation()
