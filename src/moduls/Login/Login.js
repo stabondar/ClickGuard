@@ -101,7 +101,7 @@ export default class Login
                 let self = $(this),
                     text = self.find('p').text()
 
-                if(text === 'Start Free Trial' || text === 'Get protected' || text === 'Free audit' || self.parent().hasClass('footer-banner__btn'))
+                if(text === 'Start Free Trial' || text === 'Get protected' || text === 'Free audit' || text === 'Free Audit' || self.parent().hasClass('footer-banner__btn'))
                 {
                     self.on('click', () => {tl.restart(), smooth.paused(true)})
                 }
