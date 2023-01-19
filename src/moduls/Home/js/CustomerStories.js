@@ -14,10 +14,8 @@ export default class CustomerStories
             let infoList = infoWrapper.find('.stories__info--list')
             let infoElem = infoWrapper.find('.stories__info')
             let btn = $('.stories__tab')
-            let infoHeight = infoElem.height()
             let allBorder = btn.find('.stories__tab--border.is--active')
-
-            mm.add(isDesktop, () => {infoList.height(infoHeight)})
+            
             gsap.set(infoElem, {display: 'none', opacity: 0})
             gsap.set($(infoElem).eq(0), {display: 'flex', opacity: 1})
             gsap.set($(allBorder).eq(0), {scaleX: 1})
@@ -45,7 +43,6 @@ export default class CustomerStories
                     tl.restart()
                 })
             })
-
         }
         window.addEventListener('load', () => init())
     }

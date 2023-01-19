@@ -35,7 +35,7 @@ export default class Integration
                     })
                 })
             }
-            leftPin()
+            // leftPin()
 
             const accordion = () =>
             {

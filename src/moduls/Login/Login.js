@@ -5,19 +5,12 @@ import { gsap } from 'gsap'
 import { ScrollSmoother } from 'gsap/ScrollSmoother'
 import 'intl-tel-input/build/css/intlTelInput.css'
 
-import Experience from '../../Experience'
-
 gsap.registerPlugin(ScrollSmoother)
 
 export default class Login 
 {
     constructor()
     {
-        this.experience = new Experience()
-        let smooth = this.experience.smooth.scroll
-
-        console.log(smooth);
-
         const form = () =>
         {
             let input = document.querySelector('[type="tel"]'),
@@ -93,73 +86,21 @@ export default class Login
 
             tl.from(login, { opacity: 0 })
 
-            logo.on('click', () => {tl.reverse(), smooth.paused(false)})
+            logo.on('click', () => {tl.reverse()})
 
 
             $(btn).each(function()
             {
                 let self = $(this),
-                    text = self.find('p').text()
+                    text = self.find('p').text().toLowerCase(),
+                    attr = self.attr('href')
 
-                if(text === 'Start Free Trial' || text === 'Get protected' || text === 'Free audit' || text === 'Free Audit' || self.parent().hasClass('footer-banner__btn'))
+                if(text === 'start free trial' || text === 'get protected' || text === 'free audit' || self.parent().hasClass('footer-banner__btn') || attr === '#login')
                 {
-                    self.on('click', () => {tl.restart(), smooth.paused(true)})
+                    self.on('click', () => {tl.restart()})
                 }
-
-                // if(text == 'Start Free Trial')
-                // {
-                //     self.on('click', () => {tl.restart(), smooth.paused(true)})
-                // }
-                
-                // if(text == 'Get protected')
-                // {
-                //     self.on('click', () => {tl.restart(), smooth.paused(true)})
-                // }
-                
-                // if(self.parent().hasClass('footer-banner__btn'))
-                // {
-                //     self.on('click', () => {tl.restart(), smooth.paused(true)})
-                // }
             })
         }
         animation()
-
-        // const stopScroll = () =>
-        // {
-        //     const showDialog = () => {
-        //         const scrollY = document.documentElement.style.getPropertyValue('--scroll-y');
-        //         const body = document.body;
-        //         body.style.position = 'fixed';
-        //         body.style.top = `-${scrollY}`;
-        //       };
-
-        //       const closeDialog = () => {
-        //         const body = document.body;
-        //         const scrollY = body.style.top;
-        //         body.style.position = '';
-        //         body.style.top = '';
-        //         window.scrollTo(0, parseInt(scrollY || '0') * -1);
-        //       }
-
-        //       window.addEventListener('scroll', () => {
-        //         document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}px`);
-        //       });
-
-
-        //    let btn = $('.btn');
-        //     $(btn).each(function()
-        //         {
-        //         let self = $(this);
-        //         let text = self.find('p').text();
-
-        //         if(text === 'Start Free Trial' || text === 'Get protected' || self.parent().hasClass('footer-banner__btn'))
-        //         {
-        //             self.on('click', () => showDialog());
-        //         }
-
-        //         $('.login__cross').on('click', () => closeDialog());  
-        //     });
-        // }
-        // // stopScroll()
     }
 }  

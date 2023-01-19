@@ -11,24 +11,21 @@ export default class Scroll
         let mm = gsap.matchMedia(),
             isDesktop = '(min-width: 991px)'
 
-        mm.add(isDesktop, () => 
-        {
-            this.scroll = ScrollSmoother.create(
+            const init = () => 
             {
-                smooth: 0.6,
-                content: '.main',
-                normalizeScroll: true, // prevents address bar from showing/hiding on most devices, solves various other browser inconsistencies
-                ignoreMobileResize: true, // skips ScrollTrigger.refresh() on mobile resizes from address bar showing/hiding
-                effects: true,
-                preventDefault: true,
-                smoothTouch: false
-            })
-        })
+                mm.add(isDesktop, () => 
+                {
+                    this.scroll = ScrollSmoother.create(
+                    {
+                        smooth: 0.6,
+                        content: '.main',
+                        normalizeScroll: true, // prevents address bar from showing/hiding on most devices, solves various other browser inconsistencies
+                        ignoreMobileResize: true, // skips ScrollTrigger.refresh() on mobile resizes from address bar showing/hiding
+                        smoothTouch: false
+                    })
+                })
+            }
 
-        const init = () => 
-        {
-            gsap.set('main', { autoAlpha: 1 })
-        }
         window.addEventListener('load', () => init(), ScrollTrigger.refresh())
     }
 }

@@ -20,19 +20,24 @@
         display: none;
     }    
 
-    .tabs__link .tabs__stroke 
+    /* .tabs__link .tabs__stroke 
     {
         border: solid 2px transparent;
-    }
+    } */
 
-    .tabs__link.w--current .tabs__stroke 
+    .tabs__link.w--current
     {
         border-color: #3be082;
     }
 
+    .tabs__link.w--current .tabs__item-bg 
+    {
+        margin-top: 3.13em;
+    }
+
     .tabs__link
     {
-        border: none !important;
+        /* border: none !important; */
     }
 }
 

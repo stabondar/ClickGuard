@@ -7,29 +7,36 @@ export default class NavScroll
 {
     constructor()
     {
-        let mm = gsap.matchMedia(),
-            isDesktop = '(min-width: 991px)'
-
-        mm.add(isDesktop, () => 
+        const init = () =>
         {
-            const init = () =>
+            let nav = $('.nav'),
+                trigger = $('main'),
+                navScroll = $('.nav__scroll'),
+                y = -200,
+                tl = gsap.timeline(
+                {
+                    scrollTrigger: { trigger: trigger, start: 'top top', end: `+=200`, scrub: true }
+                }),
+                tlSecond = gsap.timeline(
+                {
+                    scrollTrigger: { trigger: trigger, start: '300 top', end: `+=200`, scrub: true }
+                })
+
+            let mm = gsap.matchMedia(),
+                breakPoint = 991
+        
+            mm.add(
             {
-                let nav = $('.nav'),
-                    trigger = $('main'),
-                    navScroll = $('.nav__scroll'),
-                    tl = gsap.timeline(
-                    {
-                        scrollTrigger: { trigger: trigger, start: 'top top', end: `+=200`, scrub: true }
-                    }),
-                    tlSecond = gsap.timeline(
-                    {
-                        scrollTrigger: { trigger: trigger, start: '300 top', end: `+=200`, scrub: true }
-                    })
-    
-                tl.to(nav, {y: -200, ease: 'none'})
-                tlSecond.to(navScroll, {y: 220})
-            }
-            window.addEventListener('load', () => init())
-        })
+                isDesktop: `(min-width: ${breakPoint}px)`,
+                isMobile: `(max-width: ${breakPoint - 1}px)`,
+            }, (context) => 
+            {
+                let { isDesktop, isMobile } = context.conditions;
+                tl.to(nav, {y: isDesktop ? -200 : 0, ease: 'none'})
+            })
+
+            tlSecond.to(navScroll, {y: 220})
+        }
+        window.addEventListener('load', () => init())
     }
 }

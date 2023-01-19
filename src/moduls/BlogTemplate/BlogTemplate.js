@@ -67,10 +67,10 @@ export default class BlogTemplate
                     })
     
     
-                    ScrollTrigger.create(
-                    {
-                        trigger: trigger, start: `top ${navHeight + 80}`, end: 'bottom bottom', pin: elem
-                    })
+                    // ScrollTrigger.create(
+                    // {
+                    //     trigger: trigger, start: `top ${navHeight + 80}`, end: 'bottom bottom', pin: elem
+                    // })
                 }
                 pinScroll()
             })

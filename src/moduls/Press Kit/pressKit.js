@@ -22,10 +22,10 @@ export default class pressKit
             
             mm.add(isDesktop, () => 
             {
-                ScrollTrigger.create(
-                {
-                    trigger: trigger, start: `top ${navHeight + 50}`, end: 'bottom bottom', pin: pinElem
-                })
+                // ScrollTrigger.create(
+                // {
+                //     trigger: trigger, start: `top ${navHeight + 50}`, end: 'bottom bottom', pin: pinElem
+                // })
                 
                 $(sections).each(function(i)
                 {

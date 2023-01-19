@@ -1,5 +1,4 @@
 import './styles/style.css'
-import './styles/loco.css'
 import './styles/blog-hover.css'
 
 import Home from './moduls/Home/Home'
@@ -28,6 +27,9 @@ import Protection from './moduls/Protection/Protection.js'
 import Podcast from './moduls/Podcast/Podcast.js'
 import pressKit from './moduls/Press Kit/pressKit'
 import Auth from './moduls/Auth0/Auth0'
+import ContactUs from './moduls/ContactUs'
+import Resize from './moduls/Resize'
+import Utils from './moduls/Utils'
 
 let instance = null
 
@@ -38,7 +40,7 @@ export default class Experience
         if(instance) return instance
         instance = this
 
-        this.smooth = new Scroll()
+        // this.smooth = new Scroll()
         const buttons = new Buttons()
         const loader = new Loader()
         const text = new Text()
@@ -49,6 +51,8 @@ export default class Experience
         const anchor = new Anchors()
         const press = new pressKit ()
         const auth = new Auth()
+        // const resize = new Resize()
+        const utils = new Utils()
         if($('body').attr('data-page') === 'home') { const home = new Home() }
         if($('body').attr('allLoader') === '1') { const allloader = new allLoader() }
         if($('body').attr('data-page') === 'pricing') { const price = new Pricing() }
@@ -64,5 +68,6 @@ export default class Experience
         if($('body').attr('data-page') === 'protection') { const protection = new Protection() }
         if($('body').attr('data-page') === 'podcast') { const podcast = new Podcast() }
         if($('body').attr('data-page') === 'press') { const press = new pressKit () }
+        if($('body').attr('data-page') === 'contact-us') { const contact = new ContactUs() }
     }
 }

@@ -1,6 +1,8 @@
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
+import AddRemoveResize from '../../AddRemoveResize'
+
 gsap.registerPlugin(ScrollTrigger)
 
 export default class HomeFeatures
@@ -23,12 +25,6 @@ export default class HomeFeatures
 
             mm.add(isDesktop, () => 
             {
-                // Pin
-                ScrollTrigger.create(
-                {
-                    trigger: body, start: 'top 0%', end: `+=${deltaHeight}`, pin: right
-                })
-    
                 $(item).each(function(index)
                 {
                     if(index === 0) {bgColor = '#0037FF'}
@@ -42,7 +38,7 @@ export default class HomeFeatures
                     {
                         scrollTrigger: 
                         {
-                            trigger: self, start: 'top 60%', end: 'bottom 60%', toggleActions: 'restart none restart none',
+                            trigger: self, start: 'top 40%', end: 'bottom 40%', toggleActions: 'restart none restart none',
                             onEnter: () => 
                             {
                                 img.removeClass('active')
@@ -55,29 +51,24 @@ export default class HomeFeatures
                             }
                         }
                     })
-                    // tl.to(right, {backgroundColor: bgColor, duration: 0.1})
-    
-                    const wrapper = document.querySelector('.main')
-                    new ResizeObserver(() => ScrollTrigger.refresh(true)).observe(wrapper)
                 })
             })
 
-            mm.add(isMobile, () => 
+            $(item).each(function(index) 
             {
-                $(item).each(function(index) 
-                {
-                    let self = $(this),
-                        div = self.find('.feature__text'),
-                        currentImg = img.eq(index)
-                    
-                    currentImg.clone().appendTo(div)
+                let self = $(this),
+                    div = self.find('.feature__text'),
+                    currentImg = img.eq(index)
+                
+                // currentImg.clone().appendTo(div)
 
-                    if(index === 3) 
-                    {
-                        let btn = self.find('.feature__btn')
-                        btn.appendTo(div)
-                    }
-                })
+                const addRemoveOnResize = new AddRemoveResize(div, currentImg)
+
+                // if(index === 3) 
+                // {
+                //     let btn = self.find('.feature__btn')
+                //     btn.appendTo(div)
+                // }
             })
         }
         window.addEventListener('load', () => init())

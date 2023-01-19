@@ -11,14 +11,27 @@ export default class Desktop
         {
             const init = () =>
             {
-                $('.nav__dp--parent').each(function()
+                $('.nav__body.is--pc .nav__dp--parent').each(function()
                 {
                     let parent = $(this),
                         menuLink = parent.find('.nav__item'),
                         content = parent.find('.dp__item').removeClass('hide'),
                         menuBG = parent.find('.dp__list'),
                         dropdownWrap = parent.find('.nav__dp--content'),
-                        menuArrow = parent.find('.dp__arrow--parent')
+                        menuArrow = parent.find('.dp__arrow--parent'),
+                        navOffset
+
+                    const checkWidth = () =>
+                    {
+                        if(window.innerWidth > 1440 )
+                        {
+                            navOffset = (window.innerWidth - $('.container.is--nav').width()) / 2
+                        } else
+                        {
+                            navOffset = 0
+                        }
+                    }
+                    checkWidth()
 
                     gsap.defaults({ duration: 0.3, ease: 'power2' })
 
@@ -27,7 +40,7 @@ export default class Desktop
                         dropdownWrap.css('display', 'flex')
                         showDropdown.restart()
 
-                        gsap.set(menuArrow, { width: currentLink.outerWidth(), x: currentLink.offset().left})
+                        gsap.set(menuArrow, { width: currentLink.outerWidth(), x: currentLink.offset().left - navOffset})
                         gsap.set(menuBG, { width: currentContent.outerWidth(), height: currentContent.outerHeight() })
                         gsap.set(content, { opacity: 0 })
                         gsap.set(currentContent, { opacity: 1, x: '0em' })
@@ -35,7 +48,7 @@ export default class Desktop
 
                     function switchDropdown  (currentLink, previousContent, currentContent)
                     {
-                        gsap.to(menuArrow, { width: currentLink.outerWidth(), x: currentLink.offset().left })
+                        gsap.to(menuArrow, { width: currentLink.outerWidth(), x: currentLink.offset().left - navOffset})
                         gsap.to(menuBG, { width: currentContent.outerWidth(), height: currentContent.outerHeight() })
                         // invert moveDistance if needed
                         let moveDistance = 10
@@ -81,6 +94,8 @@ export default class Desktop
                     $('.nav__dp--parent').on('mouseleave', function () {
                         showDropdown.reverse()
                     })
+
+                    window.addEventListener('resize', () => { checkWidth() })
                 })
             }
             window.addEventListener('load', () => init())

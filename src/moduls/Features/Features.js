@@ -21,7 +21,7 @@ export default class Features
                     trigger: trigger, start: `top ${navHeight}`, end: 'bottom bottom', pin: pinItem, scrub: true, pinType: 'transform'
                 })
             }
-            leftPin()
+            // leftPin()
 
             const activeLink = () =>
             {

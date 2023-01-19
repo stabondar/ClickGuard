@@ -62,7 +62,7 @@ export default class FAQ
                         }, 310);
                     })
                 }
-                faqPin()
+                // faqPin()
             })
         }
         window.addEventListener('load', () => init())

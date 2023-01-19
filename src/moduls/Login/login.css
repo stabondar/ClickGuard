@@ -86,3 +86,17 @@
 {
     display: block !important;
 }
+
+@media screen and (max-width:991px) 
+{
+    .iti__flag-container
+    {
+        width: 5.33em;
+        height: 3.36em;
+    }
+
+    .iti--allow-dropdown input
+    {
+        padding-left: 6.4vw !important;
+    }
+}
