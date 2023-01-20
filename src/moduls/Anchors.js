@@ -88,21 +88,24 @@ export default class Anchors
             }
             legals()
 
-            const pressKit = () =>
-            {
-                let sections = gsap.utils.toArray('.legal__item')
-                let item = $('.legal__left-item')
-                $(item).each(function(i)
+            if($('body').attr('data-page') === 'press') 
+            { 
+                const pressKit = () =>
                 {
-                    let self = $(this)
-                    let currentSection = sections[i]
-                    self.on('click', () => 
+                    let sections = gsap.utils.toArray('.legal__item')
+                    let item = $('.legal__left-item')
+                    $(item).each(function(i)
                     {
-                        gsap.to(window, { duration: 1, scrollTo: {y: currentSection, offsetY: off} })
+                        let self = $(this)
+                        let currentSection = sections[i]
+                        self.on('click', () => 
+                        {
+                            gsap.to(window, { duration: 1, scrollTo: {y: currentSection, offsetY: off} })
+                        })
                     })
-                })
+                }
+                pressKit()
             }
-            pressKit()
 
             const blogTemplate = () =>
             {
