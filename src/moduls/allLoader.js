@@ -11,9 +11,7 @@ export default class allLoader
         {
             let hero = $('.hero')
             let title = hero.find('h1')
-            let titleSplit = new SplitText(title, {type: 'words, lines'})
             let descr = hero.find('.hero__descr').find('p')
-            let descrSplit = new SplitText(descr, {type: 'lines'})
             let btn = hero.find('.btn')
             let img = hero.find('[loader-img]')
             let tl = gsap.timeline(
@@ -21,12 +19,10 @@ export default class allLoader
                 defaults: {duration: 0.8, ease: 'power3', stagger: 0.02}, delay: 0.3
             })
 
-            gsap.set(titleSplit.lines, {overflow: 'hidden'})
-
-            tl.from(titleSplit.words, {yPercent: 100, opacity: 0})
-            .from(descrSplit.lines, {yPercent: 100, opacity: 0}, '<0.2')
-            .from(btn, {opacity: 0}, '<0.4')
-            .from(img, {opacity: 0}, '<0.2')
+            tl.from(title, {y: 20, opacity: 0})
+            .from(descr, {y: 20, opacity: 0}, '<0.2')
+            .fromTo(btn, {opacity: 0},{opacity: 1}, '<0.4')
+            .fromTo(img, {opacity: 0},{opacity: 1}, '<0.2')
         }
 
         window.addEventListener('load', () => init())

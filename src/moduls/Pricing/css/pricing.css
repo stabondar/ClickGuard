@@ -70,3 +70,11 @@
         display: none;
     }
 }
+
+@media (max-width:480px) 
+{
+    /* .price-compare__top
+    {
+        will-change: transform;
+    }     */
+}

@@ -6,9 +6,6 @@ export default class Tabs
 {
     constructor()
     {
-        let mm = gsap.matchMedia(),
-            isMobile = '(max-width: 991px)'
-
         const automatically = () =>
         {
             let arrowLeft = $('.automatically__tabs--arrow').eq(0),

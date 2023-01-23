@@ -3,19 +3,22 @@
     transition: background-color 0.4s ease;
 }
 
-.feature__img 
+@media screen and (min-width: 991px) 
 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
-
-.feature__img.active
-{
-    opacity: 1 !important;
+    .feature__img 
+    {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+    
+    .feature__img.active
+    {
+        opacity: 1 !important;
+    }
 }
 
 @media screen and (max-width: 991px) 

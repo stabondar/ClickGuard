@@ -21,26 +21,18 @@ import FAQ from './moduls/FAQ'
 import InnerCompare from './moduls/InnerCompare/InnerCompare.js'
 import Features from './moduls/Features/Features.js'
 import Login from './moduls/Login/Login.js'
-import Scroll from './moduls/Scroll'
 import Anchors from './moduls/Anchors'
 import Protection from './moduls/Protection/Protection.js'
 import Podcast from './moduls/Podcast/Podcast.js'
 import pressKit from './moduls/Press Kit/pressKit'
 import Auth from './moduls/Auth0/Auth0'
 import ContactUs from './moduls/ContactUs'
-import Resize from './moduls/Resize'
 import Utils from './moduls/Utils'
-
-let instance = null
 
 export default class Experience 
 {
     constructor()
     {
-        if(instance) return instance
-        instance = this
-
-        // this.smooth = new Scroll()
         const buttons = new Buttons()
         const loader = new Loader()
         const text = new Text()
@@ -51,7 +43,6 @@ export default class Experience
         const anchor = new Anchors()
         const press = new pressKit ()
         const auth = new Auth()
-        // const resize = new Resize()
         const utils = new Utils()
         if($('body').attr('data-page') === 'home') { const home = new Home() }
         if($('body').attr('allLoader') === '1') { const allloader = new allLoader() }

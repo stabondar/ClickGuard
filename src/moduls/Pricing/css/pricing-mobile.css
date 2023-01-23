@@ -1,0 +1,33 @@
+@media screen and (max-width: 480px) 
+{
+    .price-compare__item--point:nth-child(4n - 3),
+    .price-compare__top--item:nth-child(1)
+    {
+        display: flex;
+    }
+
+    .price-compare__top--item:nth-child(2),
+    .price-compare__item--point:nth-child(4n - 2),
+    .price-compare__item--point:nth-child(4n - 1),
+    .price-compare__item--point:nth-child(4n),
+    .price-compare__top--item:nth-child(3),
+    .price-compare__top--item:nth-child(4)
+    {
+        display: none;
+    }
+
+    .price-compare__top--item:nth-child(2).active,
+    .price-compare__item--point:nth-child(4n - 2).active,
+    .price-compare__item--point:nth-child(4n - 1).active,
+    .price-compare__item--point:nth-child(4n).active,
+    .price-compare__top--item:nth-child(3).active,
+    .price-compare__top--item:nth-child(4).active
+    {
+        display: flex;
+    }
+
+    .price-compare--arrows
+    {
+        top: calc(100vh - 13em - 40px)
+    }
+}

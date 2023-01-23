@@ -16,7 +16,7 @@ export default class pressKit
             let navHeight = $('.nav').height()
             let trigger = $('.legal__body')
             let pinElem = $('.legal__right')
-            let sections = gsap.utils.toArray('[anchor]')
+            let sections = gsap.utils.toArray('.legal__item')
             let navItems = $('.legal__left-item.is--press')
 
             

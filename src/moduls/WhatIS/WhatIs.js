@@ -15,6 +15,7 @@ export default class WhatIs
             let pinElem = $('.wic__left')
             let sections = gsap.utils.toArray('[anchor]')
             let navItems = $('.wic__left-item')
+            let rightNav = $('.wic__text-links').find('a')
 
             // ScrollTrigger.create(
             // {
@@ -28,13 +29,23 @@ export default class WhatIs
 
                 ScrollTrigger.create(
                 {
-                    trigger: self, start: 'top 25%', end: 'bottom 25%',
+                    trigger: self, start: 'top 40%', end: 'bottom 25%',
                     onEnter: () => 
                     {
                         navItems.removeClass('active')
                         currentNavItem.addClass('active')
                     },
                     onEnterBack: () => 
+                    {
+                        navItems.removeClass('active')
+                        currentNavItem.addClass('active')
+                    },
+                    onLeave: () => 
+                    {
+                        navItems.removeClass('active')
+                        currentNavItem.addClass('active')
+                    },
+                    onLeaveBack: () => 
                     {
                         navItems.removeClass('active')
                         currentNavItem.addClass('active')

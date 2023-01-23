@@ -4,10 +4,6 @@ export default class CustomerStories
 {
     constructor()
     {
-        let mm = gsap.matchMedia(),
-            isDesktop = '(min-width: 991px)',
-            isMobile = '(max-width: 991px)'
-
         const init = () =>
         {
             let infoWrapper = $('.stories__info--wrapper')

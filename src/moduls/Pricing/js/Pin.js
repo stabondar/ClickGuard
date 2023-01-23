@@ -9,7 +9,7 @@ export default class PricingPin
     {
         let mm = gsap.matchMedia(),
             isDesktop = '(min-width: 991px)',
-            isMobile = '(max-width: 991px)'
+            isMobile = '(max-width: 480px)'
 
         const init = () =>
         {
@@ -34,7 +34,7 @@ export default class PricingPin
                 // {
                 //     ScrollTrigger.create(
                 //     {
-                //         trigger: trigger, start: `top ${navHeight}`, end: 'bottom center', pin: pinItem, scrub: true
+                //         trigger: trigger, start: `top ${navHeight}`, end: 'bottom center', pin: pinItem
                 //     })
                 // })
 

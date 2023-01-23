@@ -7,10 +7,6 @@ export default class FAQ
 {
     constructor()
     {
-        let mm = gsap.matchMedia(),
-            isDesktop = '(min-width: 991px)',
-            isMobile = '(max-width: 991px)'
-
         const init = () =>
         {
             // Faq 
@@ -41,29 +37,6 @@ export default class FAQ
             })
 
             let navHeight = $('.nav').height()
-
-            mm.add(isDesktop, () => 
-            {
-                const faqPin = () =>
-                {
-                    let pinItem = $('.faq__left')
-                    let trigger = $('.faq__wrapper')
-                    let pinHeight = pinItem.height()
-    
-                    ScrollTrigger.create(
-                    {
-                        trigger: trigger, start: `top ${navHeight+80}`, end: `bottom center`, pin: pinItem, scrub: true, pinType: 'transform'
-                    })
-    
-                    $('.faq__item--top').on('click', () =>
-                    {
-                        setTimeout(() => {
-                            ScrollTrigger.refresh()
-                        }, 310);
-                    })
-                }
-                // faqPin()
-            })
         }
         window.addEventListener('load', () => init())
     }

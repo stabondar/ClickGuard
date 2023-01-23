@@ -9,6 +9,12 @@ export default class Desktop
 
         mm.add(isDesktop, () => 
         {
+            $('.nav__body.is--pc .nav__dp--parent').find('.dp__item').removeClass('hide')
+            gsap.set($('.nav__body.is--pc .nav__dp--parent').find('.nav__dp--content'), {clearProps: 'all'})
+        })
+
+        mm.add(isDesktop, () => 
+        {
             const init = () =>
             {
                 $('.nav__body.is--pc .nav__dp--parent').each(function()
@@ -35,13 +41,20 @@ export default class Desktop
 
                     gsap.defaults({ duration: 0.3, ease: 'power2' })
 
+                    
                     function revealDropdown  (currentLink, currentContent) 
                     {
                         dropdownWrap.css('display', 'flex')
                         showDropdown.restart()
-
+                        
+                        mm.add({
+                            isLarge: `(min-width: ${1110}px)`,
+                            isSmall: `(max-width: ${1110 - 1}px)`,
+                          }, (context) => {
+                            let { isLarge, isSmall } = context.conditions;
+                            gsap.set(menuBG, { width: isLarge ? currentContent.outerWidth() : currentContent.outerWidth() * 1.2 , height: currentContent.outerHeight() })
+                        }); 
                         gsap.set(menuArrow, { width: currentLink.outerWidth(), x: currentLink.offset().left - navOffset})
-                        gsap.set(menuBG, { width: currentContent.outerWidth(), height: currentContent.outerHeight() })
                         gsap.set(content, { opacity: 0 })
                         gsap.set(currentContent, { opacity: 1, x: '0em' })
                     }
@@ -49,7 +62,13 @@ export default class Desktop
                     function switchDropdown  (currentLink, previousContent, currentContent)
                     {
                         gsap.to(menuArrow, { width: currentLink.outerWidth(), x: currentLink.offset().left - navOffset})
-                        gsap.to(menuBG, { width: currentContent.outerWidth(), height: currentContent.outerHeight() })
+                        mm.add({
+                            isLarge: `(min-width: ${1310}px)`,
+                            isSmall: `(max-width: ${1310 - 1}px)`,
+                          }, (context) => {
+                            let { isLarge, isSmall } = context.conditions;
+                            gsap.set(menuBG, { width: isLarge ? currentContent.outerWidth() : currentContent.outerWidth() * 1.2 , height: currentContent.outerHeight() })
+                        }); 
                         // invert moveDistance if needed
                         let moveDistance = 10
                         if (currentContent.index() < previousContent.index()) {

@@ -5,7 +5,7 @@ export default class AddRemoveResize
     constructor(parent, elem)
     {
         let mm = gsap.matchMedia(),
-            isMobile = '(max-width: 991px)',
+            isMobile = '(max-width: 990px)',
             isDesktop = '(min-width: 991px)'
 
         let currentWidth = window.innerWidth
