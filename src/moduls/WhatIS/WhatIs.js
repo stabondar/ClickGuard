@@ -10,17 +10,9 @@ export default class WhatIs
     {   
         const init = () =>
         {
-            let navHeight = $('.nav').height()
-            let trigger = $('.wic__body')
-            let pinElem = $('.wic__left')
             let sections = gsap.utils.toArray('[anchor]')
             let navItems = $('.wic__left-item')
             let rightNav = $('.wic__text-links').find('a')
-
-            // ScrollTrigger.create(
-            // {
-            //     trigger: trigger, start: `top ${navHeight + 50}`, end: 'bottom bottom', pin: pinElem
-            // })
 
             $(sections).each(function(i)
             {

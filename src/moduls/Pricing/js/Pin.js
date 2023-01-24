@@ -7,10 +7,6 @@ export default class PricingPin
 {
     constructor()
     {
-        let mm = gsap.matchMedia(),
-            isDesktop = '(min-width: 991px)',
-            isMobile = '(max-width: 480px)'
-
         const init = () =>
         {
             let navHeight = $('.nav').height()
@@ -20,23 +16,6 @@ export default class PricingPin
                 let pinItem = $('.price-compare__top')
                 let topItem = $('.price-compare__top--parent')
                 topItem.height(pinItem.outerHeight())
-                let trigger = $('.price-compare__chart')
-
-                // mm.add(isDesktop, () =>
-                // {
-                //     ScrollTrigger.create(
-                //     {
-                //         trigger: trigger, start: `top ${navHeight}`, end: 'bottom center', pin: pinItem, scrub: true, pinType: 'transform'
-                //     })
-                // })
-
-                // mm.add(isMobile, () =>
-                // {
-                //     ScrollTrigger.create(
-                //     {
-                //         trigger: trigger, start: `top ${navHeight}`, end: 'bottom center', pin: pinItem
-                //     })
-                // })
 
                 $('.price-compare__item--top').on('click', () =>
                 {

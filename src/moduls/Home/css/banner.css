@@ -1,9 +1,9 @@
-[data-page="home"] .footer-banner
+.footer-banner
 {
     display: none;
 }
 
-[data-page="home"] .footer-banner.open
+.footer-banner.open
 {
     display: block;
 }

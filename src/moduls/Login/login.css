@@ -13,6 +13,12 @@
     .iti__flag 
     {
         background-image: url("https://uploads-ssl.webflow.com/63750a9b9f46b21855d02736/639ae5c517e478b27191b098_flags%402x.png") !important;
+        background-size: 5631px 15px !important;
+    }
+
+    .iti__flag.iti__us
+    {
+        background-position: -5220px 0px !important;
     }
 }
 
@@ -59,7 +65,7 @@
 
 .iti--allow-dropdown input
 {
-    padding-left: 4.4vw !important;
+    padding-left: 4rem !important;
 }
 
 .iti__country-list
@@ -77,14 +83,19 @@
 }
 
 /* Popup Animation */
+.login-open
+{
+    overflow: hidden;
+}
+
+.login-open .login
+{
+    display: block !important;
+}
+
 .login
 {
     display: none;
-}
-
-.login.open
-{
-    display: block !important;
 }
 
 @media screen and (max-width:991px) 
@@ -100,3 +111,37 @@
         padding-left: 6.4vw !important;
     }
 }
+
+@media screen and (min-width:991px) and (max-height: 630px)
+{
+    .login__left--bot
+    {
+        position: static;
+        margin-top: 4rem;
+    }
+
+    .login__body
+    {
+        min-height: 100%;
+        overflow: scroll;
+    }
+
+    .login__right
+    {
+        overflow: hidden;
+        height: 120%;
+    }
+
+    .login__title
+    {
+        padding-top: 2rem;
+    }
+
+    .login__left--top
+    {
+        position: relative;
+        left: 10.4em;
+        top: auto;
+    }
+}
+

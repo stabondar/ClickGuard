@@ -14,9 +14,6 @@ export default class Utils
                 
                 ScrollTrigger.refresh()
             }, 100);
-
-
-            // ScrollTrigger.config({ syncInterval: 999999999 })
         }
         init()
     }

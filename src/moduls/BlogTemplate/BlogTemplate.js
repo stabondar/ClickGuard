@@ -9,8 +9,7 @@ export default class BlogTemplate
     constructor()
     {   
         let mm = gsap.matchMedia(),
-            isDesktop = '(min-width: 991px)',
-            isMobile = '(max-width: 991px)'
+            isDesktop = '(min-width: 991px)'
 
         const init = () =>
         {
@@ -39,11 +38,8 @@ export default class BlogTemplate
             {
                 const pinScroll = () =>
                 {
-                    let trigger = $('.blog-template__content')
-                    let elem = $('.blog-template__contents')
                     let text = $('.blog-template__contents--list').find('p')
                     let title = $('.rich-text').find('h2')
-                    let navHeight = $('.nav').height()
     
                     $(text).each(function(i)
                     {
@@ -65,12 +61,6 @@ export default class BlogTemplate
                             }
                         })
                     })
-    
-    
-                    // ScrollTrigger.create(
-                    // {
-                    //     trigger: trigger, start: `top ${navHeight + 80}`, end: 'bottom bottom', pin: elem
-                    // })
                 }
                 pinScroll()
             })

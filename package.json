@@ -28,6 +28,7 @@
     "@studio-freight/lenis": "^0.2.28",
     "auth0": "^2.44.1",
     "auth0-js": "^9.20.0",
+    "geoplugin": "^1.0.10",
     "gsap": "file:gsap-bonus.tgz",
     "intl-tel-input": "^17.0.19",
     "locomotive-scroll": "^4.1.4",

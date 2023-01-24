@@ -20,8 +20,13 @@ export default class Login
 
             let iti = intlTelInput(input, 
             {
-                initialCountry: 'us',
-                preferredCountries: ['us'],
+                initialCountry: "auto",
+                geoIpLookup: function(callback) {
+                    $.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
+                    var countryCode = (resp && resp.country) ? resp.country : "us";
+                    callback(countryCode);
+                    });
+                },
                 placeholderNumberType: 'MOBILE',
                 autoPlaceholder: 'aggressive',
                 customPlaceholder: function(selectedCountryPlaceholder, selectedCountryData) 
@@ -79,8 +84,8 @@ export default class Login
                   btn = $('.btn')
             login.addClass('hide')
 
-            const hide = () => { login.removeClass('open') }
-            const open = () => { login.addClass('open') }
+            const hide = () => { $('body').removeClass('login-open') }
+            const open = () => { $('body').addClass('login-open') }
 
             let tl = gsap.timeline({ paused: true, onStart: open, onReverseComplete: hide })
 

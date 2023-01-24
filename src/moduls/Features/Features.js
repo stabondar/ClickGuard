@@ -9,20 +9,6 @@ export default class Features
     {   
         const init = () =>
         {
-            const leftPin = () =>
-            {
-                let navHeight = $('.nav').height()
-                let pinItem = $('.freatures-cards__left')
-                let trigger = $('.freatures-cards__body')
-                let pinHeight = pinItem.height()
-
-                ScrollTrigger.create(
-                {
-                    trigger: trigger, start: `top ${navHeight}`, end: 'bottom bottom', pin: pinItem, scrub: true, pinType: 'transform'
-                })
-            }
-            // leftPin()
-
             const activeLink = () =>
             {
                 let item = $('.freatures-cards__point');
@@ -34,7 +20,7 @@ export default class Features
                     let currentTab = trigger.eq(index)
                     ScrollTrigger.create(                        
                     {
-                        trigger: currentTab, start: 'top 50%', end: 'bottom 50%', toggleActions: 'restart none restart none',
+                        trigger: currentTab, start: 'top 50%', end: 'bottom 50%',
                         onEnter: () => 
                         {
                             item.removeClass('is--active')

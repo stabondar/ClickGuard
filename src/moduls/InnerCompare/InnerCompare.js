@@ -14,11 +14,8 @@ export default class InnerCompare
         {
             const pinScroll = () =>
             {
-                let trigger = $('.comp-details__info')
-                let elem = $('.comp-details__left')
                 let card = $('.comp-details__card')
                 let point = $('.comp-details__point')
-                let navHeight = $('.nav').height()
 
                 $(point).each(function(i)
                 {
@@ -39,11 +36,6 @@ export default class InnerCompare
                             self.addClass('is--active')
                         }
                     })
-                })
-
-                ScrollTrigger.create(
-                {
-                    trigger: trigger, start: `top ${navHeight + 80}`, end: 'bottom bottom', pin: elem
                 })
             }
             pinScroll()

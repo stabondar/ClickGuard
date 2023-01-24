@@ -13,6 +13,11 @@
     display: block;
 }
 
+.tabs__link.w--current
+{
+    border-color: #3be082;
+}
+
 @media screen and (min-width: 991px) 
 {
     .tabs__link .tabs__item-bg,
@@ -42,11 +47,6 @@
     .tabs__link .tabs__item-bg:first-child
     {
         display: block !important;
-    }
-
-    .tabs__link.w--current
-    {
-        border-color: #3be082;
     }
 
     .tabs__link.w--current .tabs__item-bg 

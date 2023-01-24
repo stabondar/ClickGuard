@@ -2,6 +2,8 @@ import { gsap } from 'gsap'
 import { TextPlugin } from 'gsap/TextPlugin'
 import { ScrambleTextPlugin } from 'gsap/ScrambleTextPlugin'
 
+import prices from './latest.json' 
+
 gsap.registerPlugin(TextPlugin, ScrambleTextPlugin)
 
 export default class PricingToggle 
@@ -13,19 +15,19 @@ export default class PricingToggle
             // Currencies
             let monthlyArray = 
                 [
-                    ['$89', '$149', '$199'],    //usd
-                    ['£72', '£121', '£161'],    //gbr
-                    ['€82', '€138', '€184'],    //euro
-                    ['C$120', 'C$201', 'C$268'], //cad
-                    ['$129', '$216', '$288']     //aud
+                    [`$89`, `$149`, `$199`],    //usd
+                    [`£${Math.floor(89 * prices.rates.GBP)}`, `£${Math.floor(149 * prices.rates.GBP)}`, `£${Math.floor(199 * prices.rates.GBP)}`],    //gbr
+                    [`€${Math.floor(89 * prices.rates.EUR)}`, `€${Math.floor(149 * prices.rates.EUR)}`, `€${Math.floor(199 * prices.rates.EUR)}`],    //euro
+                    [`C$${Math.floor(89 * prices.rates.CAD)}`, `C$${Math.floor(149 * prices.rates.CAD)}`, `C$${Math.floor(199 * prices.rates.CAD)}`], //cad
+                    [`$${Math.floor(89 * prices.rates.AUD)}`, `$${Math.floor(149 * prices.rates.AUD)}`, `$${Math.floor(199 * prices.rates.AUD)}`]     //aud
                 ],
                 annualArray = 
                 [
-                    ['$74', '$119', '$159'],    //usd
-                    ['£60', '£96', '£129'],    //gbr
-                    ['€68', '€110', '€147'],    //euro
-                    ['C$100', 'C$160', 'C$214'], //cad
-                    ['$107', '$172', '$230']     //aud
+                    [`$74`, `$119`, `$159`],    //usd
+                    [`£${Math.floor(74 * prices.rates.GBP)}`, `£${Math.floor(119 * prices.rates.GBP)}`, `£${Math.floor(159 * prices.rates.GBP)}`],    //gbr
+                    [`€${Math.floor(74 * prices.rates.EUR)}`, `€${Math.floor(119 * prices.rates.EUR)}`, `€${Math.floor(159 * prices.rates.EUR)}`],    //euro
+                    [`C$${Math.floor(74 * prices.rates.CAD)}`, `C$${Math.floor(119 * prices.rates.CAD)}`, `C$${Math.floor(159 * prices.rates.CAD)}`], //cad
+                    [`$${Math.floor(74 * prices.rates.AUD)}`, `$${Math.floor(119 * prices.rates.AUD)}`, `$${Math.floor(159 * prices.rates.AUD)}`]     //aud
                 ],
                 monthlyVal = [],
                 annualVal = []

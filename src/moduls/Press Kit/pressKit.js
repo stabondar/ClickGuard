@@ -8,25 +8,16 @@ export default class pressKit
     constructor()
     {   
         let mm = gsap.matchMedia(),
-            isDesktop = '(min-width: 991px)',
-            isMobile = '(max-width: 991px)'
+            isDesktop = '(min-width: 991px)'
 
         const init = () =>
         {
-            let navHeight = $('.nav').height()
-            let trigger = $('.legal__body')
-            let pinElem = $('.legal__right')
             let sections = gsap.utils.toArray('.legal__item')
             let navItems = $('.legal__left-item.is--press')
 
             
             mm.add(isDesktop, () => 
             {
-                // ScrollTrigger.create(
-                // {
-                //     trigger: trigger, start: `top ${navHeight + 50}`, end: 'bottom bottom', pin: pinElem
-                // })
-                
                 $(sections).each(function(i)
                 {
                     let self = $(this)

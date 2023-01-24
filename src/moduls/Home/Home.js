@@ -10,7 +10,6 @@ import ScrollLines from './js/ScrollLines'
 import Loader from './js/Loader'
 import IntegrationLogos from './js/IntegrationsLogos'
 import Tabs from './js/Tabs'
-import Banner from './js/Banner'
 
 export default class Home 
 {
@@ -22,6 +21,5 @@ export default class Home
         const loader = new Loader()
         const logos = new IntegrationLogos()
         const tabs = new Tabs()
-        const banner = new Banner()
     }
 }

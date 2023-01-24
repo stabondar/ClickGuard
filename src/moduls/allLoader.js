@@ -19,8 +19,8 @@ export default class allLoader
                 defaults: {duration: 0.8, ease: 'power3', stagger: 0.02}, delay: 0.3
             })
 
-            tl.from(title, {y: 20, opacity: 0})
-            .from(descr, {y: 20, opacity: 0}, '<0.2')
+            tl.fromTo(title, {y: 20, opacity: 0}, {y: 0, opacity: 1})
+            .fromTo(descr, {y: 20, opacity: 0}, {y: 0, opacity: 1}, '<0.2')
             .fromTo(btn, {opacity: 0},{opacity: 1}, '<0.4')
             .fromTo(img, {opacity: 0},{opacity: 1}, '<0.2')
         }
