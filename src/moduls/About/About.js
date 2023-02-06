@@ -73,6 +73,6 @@ export default class About
             }
             cardHover()
         }
-        window.addEventListener('load', () => init())
+        init()
     }
 }

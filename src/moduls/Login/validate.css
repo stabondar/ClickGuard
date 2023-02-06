@@ -1,0 +1,26 @@
+label.error 
+{
+    font-size: 0.7rem;
+    /* margin-top: 0.5em; */
+    color: #b20000;
+    width: 100%;
+    font-weight: 400;
+    position: absolute;
+    top: 101%;
+    text-align: right;
+}
+
+.login__form--item
+{
+    position: relative;
+}
+
+.login__form--item.is--phone #error-msg
+{
+    display: none !important;
+}
+
+#password-3-error
+{
+    opacity: 0 !important;
+}

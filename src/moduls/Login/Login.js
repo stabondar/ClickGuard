@@ -1,9 +1,12 @@
 import './login.css'
+import './validate.css'
 
 import intlTelInput from 'intl-tel-input'
 import { gsap } from 'gsap'
 import { ScrollSmoother } from 'gsap/ScrollSmoother'
 import 'intl-tel-input/build/css/intlTelInput.css'
+
+import Validate from './Validate'
 
 gsap.registerPlugin(ScrollSmoother)
 
@@ -93,6 +96,14 @@ export default class Login
 
             logo.on('click', () => {tl.reverse()})
 
+            let connect
+            window.addEventListener('load', () => 
+            {
+                setTimeout(() => {
+                    connect = $('.intercom-launcher').find('div').eq(0)
+                }, 2000);
+            })
+
 
             $(btn).each(function()
             {
@@ -100,12 +111,29 @@ export default class Login
                     text = self.find('p').text().toLowerCase(),
                     attr = self.attr('href')
 
-                if(text === 'start free trial' || text === 'get protected' || text === 'free audit' || self.parent().hasClass('footer-banner__btn') || attr === '#login')
+                self.on('click', () =>
                 {
-                    self.on('click', () => {tl.restart()})
-                }
+                    if(text == 'chat with support now') return
+                    if(text == 'free audit')
+                    {
+                        $(connect).click()
+                    } else
+                    {
+                        if(attr === '#')
+                        {
+                            if(text === 'accept all cookies' || text === 'accept' || text === 'save settings' || text === 'cookie settings')
+                            {
+                            } else 
+                            {
+                                tl.restart()
+                            }
+                        }
+                    }
+                })
             })
         }
         animation()
+
+        const validate = new Validate()
     }
 }  

@@ -3,9 +3,15 @@ main
   /* visibility: hidden; */
 }
 
-.footer__terms-item.last 
+.footer__terms-item.last,
+.cookies__preferences
 {
     pointer-events: none;
+}
+
+.w-webflow-badge
+{
+    display: none !important;
 }
 
 .form__submit--parent,

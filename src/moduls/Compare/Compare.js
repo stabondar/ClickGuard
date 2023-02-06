@@ -87,6 +87,6 @@ export default class Compare
             }
             tooltip()
         }
-        window.addEventListener('load', () => init())
+        init()
     }
 }

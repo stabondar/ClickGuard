@@ -37,6 +37,6 @@ export default class NavScroll
 
             tlSecond.to(navScroll, {y: 220})
         }
-        window.addEventListener('load', () => init())
+        init()
     }
 }

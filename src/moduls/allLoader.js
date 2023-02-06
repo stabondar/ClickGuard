@@ -25,6 +25,6 @@ export default class allLoader
             .fromTo(img, {opacity: 0},{opacity: 1}, '<0.2')
         }
 
-        window.addEventListener('load', () => init())
+        init()
     }
 }

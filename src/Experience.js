@@ -3,7 +3,6 @@ import './styles/blog-hover.css'
 
 import Home from './moduls/Home/Home'
 import Buttons from './moduls/Buttons'
-import Loader from './moduls/Loader'
 import Text from './moduls/Text'
 import Nav from './moduls/Nav/Nav.js'
 import Slider from './moduls/Slider'
@@ -35,7 +34,6 @@ export default class Experience
     constructor()
     {
         const buttons = new Buttons()
-        const loader = new Loader()
         const text = new Text()
         const nav = new Nav()
         const slider = new Slider()

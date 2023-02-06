@@ -117,7 +117,7 @@ export default class Desktop
                     window.addEventListener('resize', () => { checkWidth() })
                 })
             }
-            window.addEventListener('load', () => init())
+            init()
         })
     }
 }

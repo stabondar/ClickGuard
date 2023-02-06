@@ -70,6 +70,6 @@ export default class BlogTemplate
 
             console.log(richLink);
         }
-        window.addEventListener('load', () => init())
+        init()
     }
 }

@@ -30,6 +30,6 @@ export default class PricingPin
 
             $('.price-compare__item--top').eq(0).click()
         }
-        window.addEventListener('load', () => init())
+        init()
     }
 }

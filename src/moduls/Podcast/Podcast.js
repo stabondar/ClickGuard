@@ -20,7 +20,7 @@ export default class Podcast
         })
         }
 
-        window.addEventListener('load', () => side())    
+        side()
         })
     }
 }

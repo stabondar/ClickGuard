@@ -20,6 +20,6 @@ export default class ScrollLines
             tl.to(line0, {xPercent: -40})
             .to(line1, { xPercent: 10 }, '<')
         }
-        window.addEventListener('load', () => init())
+        init()
     }
 }

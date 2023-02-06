@@ -30,6 +30,6 @@ export default class RealStories
             }
             viewMore()
         }
-        window.addEventListener('load', () => init())
+        init()
     }
 }

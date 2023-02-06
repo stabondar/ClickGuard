@@ -22,6 +22,6 @@ export default class IntegrationLogos
                 tl.to(line, {xPercent: move})
             })
         }
-        window.addEventListener('load', () => init())
+        init()
     }
 }

@@ -58,6 +58,6 @@ export default class InnerCompare
             }
             tooltip()
         }
-        window.addEventListener('load', () => init())
+        init()
     }
 }

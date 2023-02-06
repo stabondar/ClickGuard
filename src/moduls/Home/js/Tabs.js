@@ -57,6 +57,7 @@ export default class Tabs
             })
         }
         
-        window.addEventListener('load', () => automatically(), why())    
+        automatically() 
+        why()   
     }
 }

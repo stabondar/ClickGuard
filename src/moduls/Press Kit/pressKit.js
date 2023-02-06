@@ -40,6 +40,6 @@ export default class pressKit
                 })
             })
         }
-        window.addEventListener('load', () => init())
+        init()
     }
 }

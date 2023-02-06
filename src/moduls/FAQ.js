@@ -38,6 +38,6 @@ export default class FAQ
 
             let navHeight = $('.nav').height()
         }
-        window.addEventListener('load', () => init())
+        init()
     }
 }

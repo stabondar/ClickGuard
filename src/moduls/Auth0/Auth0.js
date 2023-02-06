@@ -25,7 +25,7 @@ export default class Auth
             clientID: authConfig.client_id,
             audience: authConfig.audience,
             scope: authConfig.scope,
-            redirectUri: 'https://app.clickguard.com',
+            redirectUri: 'https://app.clickguard.com/confirmation',
             responseType: 'token',
         })
 
@@ -51,18 +51,30 @@ export default class Auth
                 password = form.find('[type="password"]'),
                 name = form.find('[name="name-2"]'),
                 submit = form.find('[type="submit"]'),
-                emailVal, passwordVal, nameVal
+                emailVal, passwordVal, nameVal,
+                passwordError = form.find('.p--14.password-error')
 
             email.on('keyup', () => 
             {
                 emailVal = email.val()
             })
 
+            let error = $('.login__form--item.is--password').find('#password-3-error')
             password.on('keyup', () => 
             {
                 passwordVal = password.val()
+                if(passwordVal.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,30}$/))
+                {
+                    $('.login__form--descr').css('color', '#98a2b3')
+                    $('.form__submit--parent.is--login').css('pointer-events', 'auto')
+                    $('.form__submit--parent.is--login').find('a').css('background-color', '#0137FF')
+                } else
+                {
+                    $('.form__submit--parent.is--login').find('a').css('background-color', 'grey')
+                    $('.login__form--descr').css('color', '#b20000')
+                    $('.form__submit--parent.is--login').css('pointer-events', 'none')
+                }
             })
-
             name.on('keyup', () => 
             {
                 nameVal = name.val()
@@ -76,7 +88,7 @@ export default class Auth
                     email: emailVal,
                     password: passwordVal,
                     name: nameVal,
-                    connection: authConfig.connections.email
+                    connection: authConfig.connections.email,
                 }, 
                 function (err, result) 
                 {
@@ -84,12 +96,16 @@ export default class Auth
                     if (err) 
                     {
                         console.log(err);
+                        passwordError.text(err.policy)
                     } else 
                     {
                         console.log(result);
+                        passwordError.css('display', 'none')
+                        window.location.replace('https://app.clickguard.com/confirmation')
                     } 
                 })
             })
         })
+
     }
 }

@@ -45,6 +45,6 @@ export default class WhatIs
                 })
             })
         }
-        window.addEventListener('load', () => init())
+        init()
     }
 }

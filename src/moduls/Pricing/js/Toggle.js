@@ -109,10 +109,18 @@ export default class PricingToggle
                 let target = $(event.target)
                 if(target.closest(dropdown).length > 0 )
                 {
-                    dropdownTl.play()
+                    if(!dropdownList.hasClass('open'))
+                    {
+                        dropdownTl.play()
+                    } else 
+                    {
+                        dropdownTl.reverse()
+                    }
+                    dropdownList.toggleClass('open')
                 } else
                 {
                     dropdownTl.reverse()
+                    dropdownList.removeClass('open')
                 }
             })
 
@@ -148,6 +156,6 @@ export default class PricingToggle
             })
 
         }
-        window.addEventListener('load', () => init())
+        init()
     }
 }

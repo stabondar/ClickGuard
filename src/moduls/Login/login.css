@@ -82,6 +82,11 @@
     padding: 0.35em 0.69em !important;
 }
 
+.iti--allow-dropdown
+{
+    width: 100%;
+}
+
 /* Popup Animation */
 .login-open
 {

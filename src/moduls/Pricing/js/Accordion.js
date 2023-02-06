@@ -31,6 +31,6 @@ export default class PricingAccordion
                 $(this).toggleClass('open')
             })
         }
-        window.addEventListener('load', () => init())
+        init()  
     }
 }

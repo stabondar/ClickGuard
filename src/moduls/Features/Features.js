@@ -50,6 +50,6 @@ export default class Features
             }
             animatedLine ()
         }
-        window.addEventListener('load', () => init())
+        init()
     }
 }

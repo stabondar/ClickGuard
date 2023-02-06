@@ -39,7 +39,7 @@ export default class Hover
                     self.on('mouseleave', () => tl.reverse()) 
                 })
             }
-            window.addEventListener('load', () => init()) 
+            init()
         })
     }
 }

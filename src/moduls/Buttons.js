@@ -125,6 +125,6 @@ export default class Buttons
             })
         }
 
-        window.addEventListener('load', () => init())
+        init()
     }
 }

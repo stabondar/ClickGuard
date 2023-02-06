@@ -86,17 +86,34 @@ export default class Anchors
 
             const legals = () =>
             {
-                let sections = gsap.utils.toArray('.legal__item')
-                let item = $('.legal__links').find('a')
-                $(item).each(function(i)
+                if($('body').attr('data-page') === 'data-procecing')
                 {
-                    let self = $(this)
-                    let currentSection = sections[i]
-                    self.on('click', () => 
+                    let sections = gsap.utils.toArray('[anchor]')
+                    let item = $('.legal__links').find('a')
+                    $(item).each(function(i)
                     {
-                        gsap.to(window, { duration: 1, scrollTo: {y: currentSection, offsetY: off} })
+                        let self = $(this)
+                        let currentSection = sections[i]
+                        self.on('click', () => 
+                        {
+                            gsap.to(window, { duration: 1, scrollTo: {y: currentSection, offsetY: off} })
+                        })
                     })
-                })
+                } else
+                {
+                    let sections = gsap.utils.toArray('.legal__item')
+                    let item = $('.legal__links').find('a')
+                    $(item).each(function(i)
+                    {
+                        let self = $(this)
+                        let currentSection = sections[i]
+                        self.on('click', () => 
+                        {
+                            gsap.to(window, { duration: 1, scrollTo: {y: currentSection, offsetY: off} })
+                        })
+                    })
+                }
+                
             }
             legals()
 

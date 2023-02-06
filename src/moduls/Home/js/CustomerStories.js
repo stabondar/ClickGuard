@@ -40,6 +40,6 @@ export default class CustomerStories
                 })
             })
         }
-        window.addEventListener('load', () => init())
+        init()
     }
 }
