@@ -32,3 +32,16 @@
     right: 2rem;
     opacity: 0.6;
 }
+
+.jobs__button-parent button 
+{
+    background: transparent !important;
+}
+
+@media screen and (max-width: 480px) 
+{
+    .jobs__item
+    {
+        padding: 2rem;
+    }
+}
