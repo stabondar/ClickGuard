@@ -165,4 +165,20 @@
         left: 2rem !important;
         bottom: 1rem;
     }
+
+    .proces__list
+    {
+        flex-direction: column;
+        height: 50.187rem;
+    }
+
+    .process__item.active
+    {
+        height: 40% !important;
+    }
+
+    .process__item
+    {
+        height: 8.135rem;
+    }
 }
