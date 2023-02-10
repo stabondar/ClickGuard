@@ -33,17 +33,21 @@ export default class Auth
         {
             $(".login__grid--item").eq(0).on('click', () =>
             {
-                authClient.authorize({ connection: authConfig.connections.google })
+                if (CG) CG.conversion('Google')
+                setTimeout(() => authClient.authorize({ connection: authConfig.connections.google }), 500)
             })
 
             $(".login__grid--item").eq(1).on('click', () =>
             {
-                authClient.authorize({ connection: authConfig.connections.linkedin })
+                if (CG) CG.conversion('Linkedin')
+                setTimeout(() => authClient.authorize({ connection: authConfig.connections.linkedin }), 500)
             })
             
             $(".login__grid--item").eq(3).on('click', () =>
             {
-                authClient.authorize({ connection: authConfig.connections.facebook })
+                if (CG) CG.conversion('Facebook')
+                setTimeout(() => authClient.authorize({ connection: authConfig.connections.facebook }), 500)
+                
             })
 
             let form = $('.login__form--list'),
@@ -101,7 +105,8 @@ export default class Auth
                     {
                         console.log(result);
                         passwordError.css('display', 'none')
-                        window.location.replace('https://app.clickguard.com/confirmation')
+                        if (CG) CG.conversion('Signup form')
+                        setTimeout(() => window.location.replace('https://app.clickguard.com/confirmation'), 500)
                     } 
                 })
             })

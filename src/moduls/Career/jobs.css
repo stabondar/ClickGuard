@@ -1,0 +1,34 @@
+.jobs__item
+{
+    padding: 1rem 2rem 2rem;
+    border-radius: 0.625rem;
+    background-color: #edf5fd;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.jobs__points
+{
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem
+}
+
+.jobs__item .jobs__button-parent
+{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: flex-start;
+}
+
+.jobs__item .jobs__timer
+{
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    opacity: 0.6;
+}

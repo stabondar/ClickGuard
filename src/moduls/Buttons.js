@@ -7,7 +7,6 @@ export default class Buttons
     {
         const init = () =>
         {
-
             $('.btn').each(function()
             {   
                 let size = '1.39em'
@@ -126,5 +125,10 @@ export default class Buttons
         }
 
         init()
+
+        window.addEventListener('load', () => 
+        {
+            setTimeout(() => { init() }, 1000)
+        })
     }
 }

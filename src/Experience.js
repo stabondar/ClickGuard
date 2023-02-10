@@ -28,6 +28,7 @@ import Auth from './moduls/Auth0/Auth0'
 import ContactUs from './moduls/ContactUs'
 import Utils from './moduls/Utils'
 import Banner from './moduls/Banner'
+import Career from './moduls/Career/Career'
 
 export default class Experience 
 {
@@ -60,5 +61,6 @@ export default class Experience
         if($('body').attr('data-page') === 'podcast') { const podcast = new Podcast() }
         if($('body').attr('data-page') === 'press') { const press = new pressKit () }
         if($('body').attr('data-page') === 'contact-us') { const contact = new ContactUs() }
+        if($('body').attr('data-page') === 'career') { const career = new Career() }
     }
 }
