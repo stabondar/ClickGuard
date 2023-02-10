@@ -35,7 +35,7 @@ export default class Jobs
                             <p class="p--18">Department ${job.Department}</p>
                         </div>
                         <div class="jobs__button-parent">
-                            <button><a href="${job.ApplyUrl}" class="btn is--blue"> 
+                            <button><a href="${job.ApplyUrl}" target="_blank" class="btn is--blue"> 
                                 <p class="p--16 weight--700">Apply</p> 
                                 <div class="btn__border"></div>
                                 <div class="btn__border--bg-parent">
