@@ -5,11 +5,12 @@ export default class ContactUs
         window.addEventListener('load', () => 
         {
             setTimeout(() => {
-                let connect = $('.intercom-lightweight-app-launcher-icon.intercom-lightweight-app-launcher-icon-open')
+                let connect = $('.cc-imbb')
                 let trigger = $('.connect__card').add('.hero__btn')
                 trigger.on('click', () => 
                 {
                     connect.click()
+                    // console.log(connect);
                 })
             }, 2000);
         })

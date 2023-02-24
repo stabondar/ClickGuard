@@ -100,7 +100,7 @@ export default class Login
             window.addEventListener('load', () => 
             {
                 setTimeout(() => {
-                    connect = $('.intercom-launcher').find('div').eq(0)
+                    connect = $('.cc-imbb')
                 }, 2000);
             })
 
