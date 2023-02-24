@@ -29,6 +29,7 @@ import ContactUs from './moduls/ContactUs'
 import Utils from './moduls/Utils'
 import Banner from './moduls/Banner'
 import Career from './moduls/Career/Career'
+import ButtonsCombo from './moduls/ButtonsCombo'
 
 export default class Experience 
 {
@@ -45,6 +46,7 @@ export default class Experience
         const auth = new Auth()
         const utils = new Utils()
         const banner = new Banner()
+        const buttonCombo = new ButtonsCombo()
         if($('body').attr('data-page') === 'home') { const home = new Home() }
         if($('body').attr('allLoader') === '1') { const allloader = new allLoader() }
         if($('body').attr('data-page') === 'pricing') { const price = new Pricing() }
