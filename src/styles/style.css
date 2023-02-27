@@ -25,11 +25,6 @@ main
     position: fixed !important;
 }
 
-.btn * 
-{
-    pointer-events: none;
-}
-
 
 ::selection
 {
@@ -37,4 +32,12 @@ main
   color: #222;
   -webkit-text-fill-color: #222;
   -webkit-text-stroke-color: transparent;
+}
+
+@media screen and (max-width: 991px) 
+{
+    /* main
+    {
+        overflow: hidden !important;
+    }     */
 }
