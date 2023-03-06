@@ -126,7 +126,14 @@ export default class Auth
                         console.log(result);
                         passwordError.css('display', 'none')
                         if (CG) CG.conversion('Signup form')
-                        setTimeout(() => window.location.replace('https://app.clickguard.com/confirmation'), 500)
+                        authClient.login({
+                            realm: authConfig.connections.email,
+                            email: emailVal,
+                            password: passwordVal,
+                          }, (err) => {
+                            console.log(err.description)
+                            // handle login error
+                          })
                     } 
                 })
             })
