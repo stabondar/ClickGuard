@@ -54,7 +54,7 @@ export default class Auth
                 email = form.find('[type="email"]'),
                 password = form.find('[type="password"]'),
                 name = form.find('[name="name-2"]'),
-                submit = form.find('[type="submit"]'),
+                submit = form.find('.form__submit--parent.is--login').find('.btn'),
                 emailVal, passwordVal, nameVal,
                 passwordError = form.find('.p--14.password-error')
 
@@ -79,6 +79,20 @@ export default class Auth
                     $('.form__submit--parent.is--login').css('pointer-events', 'none')
                 }
             })
+
+                passwordVal = password.val()
+                if(passwordVal.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,30}$/))
+                {
+                    $('.login__form--descr').css('color', '#98a2b3')
+                    $('.form__submit--parent.is--login').css('pointer-events', 'auto')
+                    $('.form__submit--parent.is--login').find('a').css('background-color', '#0137FF')
+                } else
+                {
+                    $('.form__submit--parent.is--login').find('a').css('background-color', 'grey')
+                    // $('.login__form--descr').css('color', '#b20000')
+                    $('.form__submit--parent.is--login').css('pointer-events', 'none')
+                }
+
             name.on('keyup', () => 
             {
                 nameVal = name.val()
@@ -91,7 +105,7 @@ export default class Auth
                 {
                     email: emailVal,
                     password: passwordVal,
-                    name: nameVal,
+                    username: nameVal,
                     connection: authConfig.connections.email,
                 }, 
                 function (err, result) 
@@ -100,6 +114,12 @@ export default class Auth
                     if (err) 
                     {
                         console.log(err);
+                        console.log(err.description);
+                        if(err.description == 'Invalid sign up')
+                        {
+                            $('.login__form--descr').find('p').text('This email is already signed')
+                            $('.login__form--descr').css('color', '#b20000')
+                        }
                         passwordError.text(err.policy)
                     } else 
                     {
@@ -110,6 +130,37 @@ export default class Auth
                     } 
                 })
             })
+
+            // submit.on('click', () => 
+            // {
+            //     authClient.login(
+            //     {
+            //         realm: authConfig.connections.email,
+            //         email: emailVal,
+            //         password: passwordVal,
+            //     }, 
+            //     function (err, result) 
+            //     {
+            //         // check if some error happened
+            //         if (err) 
+            //         {
+            //             console.log(err);
+            //             console.log(err.description);
+            //             if(err.description == 'Invalid sign up')
+            //             {
+            //                 $('.login__form--descr').find('p').text('This email is already signed')
+            //                 $('.login__form--descr').css('color', '#b20000')
+            //             }
+            //             passwordError.text(err.policy)
+            //         } else 
+            //         {
+            //             console.log(result);
+            //             passwordError.css('display', 'none')
+            //             // if (CG) CG.conversion('Signup form')
+            //             setTimeout(() => window.location.replace('https://app.clickguard.com/confirmation'), 500)
+            //         } 
+            //     })
+            // })
         })
 
     }

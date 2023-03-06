@@ -9,6 +9,8 @@ export default class Validate
     constructor()
     {
 
+        let submit = $('.login').find('.form__submit--parent.is--login').find('.btn')
+
         $('#email-form').validate(
         {
             rules: 
@@ -27,6 +29,11 @@ export default class Validate
                     minlength: 'Minimum 8 characters, 1 uppercase, 1 lowecase and 1 number, special characters (e.g. !@#$%^&*)'
                 }
             }
+        })
+
+        submit.on('click', () => 
+        {
+            $('#email-form').valid()
         })
     }
 }

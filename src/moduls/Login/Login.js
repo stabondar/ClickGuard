@@ -3,12 +3,9 @@ import './validate.css'
 
 import intlTelInput from 'intl-tel-input'
 import { gsap } from 'gsap'
-import { ScrollSmoother } from 'gsap/ScrollSmoother'
 import 'intl-tel-input/build/css/intlTelInput.css'
 
 import Validate from './Validate'
-
-gsap.registerPlugin(ScrollSmoother)
 
 export default class Login 
 {
@@ -100,7 +97,7 @@ export default class Login
             window.addEventListener('load', () => 
             {
                 setTimeout(() => {
-                    connect = $('.intercom-launcher').find('div').eq(0)
+                    connect = $('.cc-imbb')
                 }, 2000);
             })
 
@@ -114,6 +111,7 @@ export default class Login
                 self.on('click', () =>
                 {
                     if(text == 'chat with support now') return
+                    if(text == 'create account') return
                     if(text == 'free audit')
                     {
                         $(connect).click()
@@ -133,6 +131,14 @@ export default class Login
             })
         }
         animation()
+
+        let signIn = document.getElementById('email-form');
+        signIn.addEventListener('submit', handlerCallback, true);
+
+        function handlerCallback(event) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
 
         const validate = new Validate()
     }
