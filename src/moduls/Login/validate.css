@@ -24,3 +24,23 @@ label.error
 {
     opacity: 0 !important;
 }
+
+.form__submit--parent.disabled
+{   
+    pointer-events: none;
+}
+
+.form__submit--parent.disabled .btn
+{
+    background-color: #D3DAE6;
+}
+
+.form__submit--parent.disabled .btn__border
+{
+    border-color: white;
+}
+
+.form__submit--parent.disabled .btn__border--bg
+{
+    background-color: white;
+}

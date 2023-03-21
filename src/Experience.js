@@ -30,6 +30,7 @@ import Utils from './moduls/Utils'
 import Banner from './moduls/Banner'
 import Career from './moduls/Career/Career'
 import ButtonsCombo from './moduls/ButtonsCombo'
+import Select from './moduls/Select/Select'
 
 export default class Experience 
 {
@@ -40,13 +41,14 @@ export default class Experience
         const nav = new Nav()
         const slider = new Slider()
         const faq = new FAQ()
-        const login = new Login()
         const anchor = new Anchors()
         const press = new pressKit ()
         const auth = new Auth()
         const utils = new Utils()
         const banner = new Banner()
         const buttonCombo = new ButtonsCombo()
+        const select = new Select()
+        const login = new Login()
         if($('body').attr('data-page') === 'home') { const home = new Home() }
         if($('body').attr('allLoader') === '1') { const allloader = new allLoader() }
         if($('body').attr('data-page') === 'pricing') { const price = new Pricing() }

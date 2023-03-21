@@ -28,5 +28,30 @@ export default class ButtonsCombo
         {
             footerBtn.addClass(`${slug}--banner-btn`)
         }
+
+        let loginSubmit = $('.form__submit--parent.is--login')
+        let loginBtn = loginSubmit.find('.btn')
+
+        loginBtn.addClass('create-acc--btn')
+
+        $('.nav__right').each(function()
+        {
+            let self = $(this)
+            let signin = self.find('[btn="signin"]')
+            let login = self.find('[btn="login"]')
+
+            signin.addClass('nav-get-protectet')
+            login.addClass('nav-new-free-demo')
+        })
+
+        $('.nav__mob-cta').each(function()
+        {
+            let self = $(this)
+            let signin = self.find('[btn="signin"]')
+            let login = self.find('[btn="login"]')
+
+            signin.addClass('nav-get-protectet')
+            login.addClass('nav-new-free-demo')
+        })
     }
 }

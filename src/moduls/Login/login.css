@@ -1,3 +1,8 @@
+:root
+{
+    --login-heihgt: 100%
+}
+
 .hide
 {
     display: none;
@@ -88,17 +93,20 @@
 }
 
 /* Popup Animation */
-.login-open
+.login-open,
+.signin-open
 {
     overflow: hidden;
 }
 
-.login-open .login
+.login-open [popup="login"],
+.signin-open [popup="signin"]
 {
     display: block !important;
 }
 
-.login
+[popup="login"],
+[popup="signin"]
 {
     display: none;
 }
@@ -115,10 +123,20 @@
     {
         padding-left: 6.4vw !important;
     }
+
+    .login
+    {
+        height: 100dvh;
+    }
 }
 
-@media screen and (min-width:991px) and (max-height: 630px)
+@media screen and (min-width:991px) and (max-height: 910px)
 {
+    .login
+    {
+        overflow: scroll;
+    }
+
     .login__left--bot
     {
         position: static;
@@ -128,25 +146,71 @@
     .login__body
     {
         min-height: 100%;
-        overflow: scroll;
+        /* overflow: scroll; */
+        height: auto;
     }
 
     .login__right
     {
         overflow: hidden;
-        height: 120%;
+    }
+
+    .login .login__right
+    {
+        position: sticky;
+        top: 0;
+        height: 100dvh;
+        margin-bottom: -80px;
     }
 
     .login__title
     {
         padding-top: 2rem;
     }
+}
 
-    .login__left--top
+@media screen and (min-width:991px) and (max-height: 700px)
+{
+    .login .login__right
     {
-        position: relative;
-        left: 10.4em;
-        top: auto;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 0;
+    }
+
+    .login .login__right--rates
+    {
+        position: static;
+        height: 20vh;
+        margin-bottom: 20px;
+    }
+
+    .login .login__right--logos
+    {
+        position: static;
+        margin-bottom: 20px;
+    }
+
+    .login .login__right--heading.is--login
+    {
+        min-height: auto;
+        padding-bottom: 45px;
+    }
+
+    .login .login__logo
+    {
+        position: static;
+    }
+}
+
+
+@media screen and (min-width: 480px) 
+{
+    .iti.iti--allow-dropdown,
+    .iti.iti--allow-dropdown input
+    {
+        height: 100%;
     }
 }
 

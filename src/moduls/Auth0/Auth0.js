@@ -4,6 +4,8 @@ export default class Auth
 {
     constructor()
     {
+        let signin = $('[popup="signin"]')
+
         let authConfig = 
         {
             domain: 'auth.clickguard.com', 
@@ -69,28 +71,28 @@ export default class Auth
                 passwordVal = password.val()
                 if(passwordVal.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,30}$/))
                 {
-                    $('.login__form--descr').css('color', '#98a2b3')
-                    $('.form__submit--parent.is--login').css('pointer-events', 'auto')
-                    $('.form__submit--parent.is--login').find('a').css('background-color', '#0137FF')
+                    signin.find('.login__form--descr').css('color', '#98a2b3')
+                    signin.find('.form__submit--parent.is--login').css('pointer-events', 'auto')
+                    signin.find('.form__submit--parent.is--login').find('a').css('background-color', '#0137FF')
                 } else
                 {
-                    $('.form__submit--parent.is--login').find('a').css('background-color', 'grey')
-                    $('.login__form--descr').css('color', '#b20000')
-                    $('.form__submit--parent.is--login').css('pointer-events', 'none')
+                    signin.find('.form__submit--parent.is--login').find('a').css('background-color', 'grey')
+                    signin.find('.login__form--descr').css('color', '#b20000')
+                    signin.find('.form__submit--parent.is--login').css('pointer-events', 'none')
                 }
             })
 
                 passwordVal = password.val()
                 if(passwordVal.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,30}$/))
                 {
-                    $('.login__form--descr').css('color', '#98a2b3')
-                    $('.form__submit--parent.is--login').css('pointer-events', 'auto')
-                    $('.form__submit--parent.is--login').find('a').css('background-color', '#0137FF')
+                    signin.find('.login__form--descr').css('color', '#98a2b3')
+                    signin.find('.form__submit--parent.is--login').css('pointer-events', 'auto')
+                    signin.find('.form__submit--parent.is--login').find('a').css('background-color', '#0137FF')
                 } else
                 {
-                    $('.form__submit--parent.is--login').find('a').css('background-color', 'grey')
-                    // $('.login__form--descr').css('color', '#b20000')
-                    $('.form__submit--parent.is--login').css('pointer-events', 'none')
+                    signin.find('.form__submit--parent.is--login').find('a').css('background-color', 'grey')
+                    // signin.find('.login__form--descr').css('color', '#b20000')
+                    signin.find('.form__submit--parent.is--login').css('pointer-events', 'none')
                 }
 
             name.on('keyup', () => 
@@ -137,38 +139,6 @@ export default class Auth
                     } 
                 })
             })
-
-            // submit.on('click', () => 
-            // {
-            //     authClient.login(
-            //     {
-            //         realm: authConfig.connections.email,
-            //         email: emailVal,
-            //         password: passwordVal,
-            //     }, 
-            //     function (err, result) 
-            //     {
-            //         // check if some error happened
-            //         if (err) 
-            //         {
-            //             console.log(err);
-            //             console.log(err.description);
-            //             if(err.description == 'Invalid sign up')
-            //             {
-            //                 $('.login__form--descr').find('p').text('This email is already signed')
-            //                 $('.login__form--descr').css('color', '#b20000')
-            //             }
-            //             passwordError.text(err.policy)
-            //         } else 
-            //         {
-            //             console.log(result);
-            //             passwordError.css('display', 'none')
-            //             // if (CG) CG.conversion('Signup form')
-            //             setTimeout(() => window.location.replace('https://app.clickguard.com/confirmation'), 500)
-            //         } 
-            //     })
-            // })
         })
-
     }
 }

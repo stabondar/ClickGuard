@@ -77,58 +77,84 @@ export default class Login
         }
         form()
 
+        const validateForm = (login) =>
+        {
+            let input = login.find('input')
+            let emailInput = login.find('[type="email"]')
+            let firstNameInput = login.find('[name="firstname"]')
+            let lastNameInput = login.find('[name="lastname"]')
+            let UrlInput = login.find('[name="url"]')
+            let error = login.find('input.error, select.error')
+            let submit = login.find('.form__submit--parent')
+            let checkbox = login.find('[type="checkbox"]')
+            let checkboxParent = login.find('.login__checkbox---parent')
+            let selectInput = login.find('.styledSelect.checked')
+            let selectOptions = login.find('.styledParent').find('li')
+
+            submit.addClass('disabled')
+
+            const checkInput = () =>
+            {
+                error = login.find('input.error, select.error')
+                selectInput = login.find('.styledSelect.checked')
+
+                if(emailInput.val().length < 5 || firstNameInput.val().length < 2 || lastNameInput.val().length < 2 || UrlInput.val().length < 4 ||  error.length > 0 || checkbox.is(':checked') == false || selectInput.length == 0)
+                {
+                    submit.addClass('disabled')
+                } else
+                {
+                    submit.removeClass('disabled')
+                }
+
+                
+            }
+
+            input.on('keyup', () => checkInput())
+            checkboxParent.on('click', () => checkInput())
+            selectOptions.on('click', () => checkInput())
+        }
+
         const animation = () =>
         {
-            const login = $('.login'),
-                  logo = $('.login__cross'),
-                  btn = $('.btn')
-            login.addClass('hide')
-
-            const hide = () => { $('body').removeClass('login-open') }
-            const open = () => { $('body').addClass('login-open') }
-
-            let tl = gsap.timeline({ paused: true, onStart: open, onReverseComplete: hide })
-
-            tl.from(login, { opacity: 0 })
-
-            logo.on('click', () => {tl.reverse()})
-
-            let connect
-            window.addEventListener('load', () => 
-            {
-                setTimeout(() => {
-                    connect = $('.cc-imbb')
-                }, 2000);
-            })
+            const signin = $('[popup="signin"]')
+            const login = $('[popup="login"]')
+            const logo = $('.login__cross')
+            const btn = $('.btn')
 
 
+            const hideSingin = () => { $('body').removeClass('signin-open') }
+            const openSingin = () => { $('body').addClass('signin-open') }
+
+            const hideLogin = () => { $('body').removeClass('login-open') }
+            const openLogin = () => { $('body').addClass('login-open') }
+
+            let tlSignin = gsap.timeline({ paused: true, onStart: openSingin, onReverseComplete: hideSingin })
+            let tlLogin = gsap.timeline({ paused: true, onStart: openLogin, onReverseComplete: hideLogin })
+
+            tlSignin.from(signin, { opacity: 0 })
+            tlLogin.from(login, { opacity: 0 })
+
+            logo.on('click', () => {tlSignin.reverse(), tlLogin.reverse()})
+            
             $(btn).each(function()
             {
-                let self = $(this),
-                    text = self.find('p').text().toLowerCase(),
-                    attr = self.attr('href')
+                let self = $(this)
+                let attr = self.attr('btn')
 
                 self.on('click', () =>
                 {
-                    if(text == 'chat with support now') return
-                    if(text == 'create account') return
-                    if(text == 'free audit')
+                    if(attr == 'signin')
                     {
-                        $(connect).click()
-                    } else
+                        tlSignin.restart()
+                    }
+                    else if(attr == 'login')
                     {
-                        if(attr === '#')
-                        {
-                            if(text === 'accept all cookies' || text === 'accept' || text === 'save settings' || text === 'cookie settings')
-                            {
-                            } else 
-                            {
-                                tl.restart()
-                            }
-                        }
+                        tlLogin.restart()
                     }
                 })
             })
+
+            validateForm(login)
         }
         animation()
 
@@ -141,5 +167,16 @@ export default class Login
         }
 
         const validate = new Validate()
+
+        // $('.btn').each(function()
+        // {
+        //     let self = $(this),
+        //         text = self.find('p').text().toLowerCase()
+
+        //     if(text == 'free audit')
+        //     {
+        //         self.attr("onclick", "$crisp.push(['do', 'chat:open'])")
+        //     }
+        // })
     }
 }  
