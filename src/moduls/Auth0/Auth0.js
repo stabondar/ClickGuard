@@ -56,8 +56,9 @@ export default class Auth
                 email = form.find('[type="email"]'),
                 password = form.find('[type="password"]'),
                 name = form.find('[name="name-2"]'),
+                phone = form.find('[type="tel"]'),
                 submit = form.find('.form__submit--parent.is--login').find('.btn'),
-                emailVal, passwordVal, nameVal,
+                emailVal, passwordVal, nameVal, phoneVal,
                 passwordError = form.find('.p--14.password-error')
 
             email.on('keyup', () => 
@@ -82,24 +83,28 @@ export default class Auth
                 }
             })
 
-                passwordVal = password.val()
-                if(passwordVal.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,30}$/))
-                {
-                    signin.find('.login__form--descr').css('color', '#98a2b3')
-                    signin.find('.form__submit--parent.is--login').css('pointer-events', 'auto')
-                    signin.find('.form__submit--parent.is--login').find('a').css('background-color', '#0137FF')
-                } else
-                {
-                    signin.find('.form__submit--parent.is--login').find('a').css('background-color', 'grey')
-                    // signin.find('.login__form--descr').css('color', '#b20000')
-                    signin.find('.form__submit--parent.is--login').css('pointer-events', 'none')
-                }
+            passwordVal = password.val()
+            if(passwordVal.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,30}$/))
+            {
+                signin.find('.login__form--descr').css('color', '#98a2b3')
+                signin.find('.form__submit--parent.is--login').css('pointer-events', 'auto')
+                signin.find('.form__submit--parent.is--login').find('a').css('background-color', '#0137FF')
+            } else
+            {
+                signin.find('.form__submit--parent.is--login').find('a').css('background-color', 'grey')
+                // signin.find('.login__form--descr').css('color', '#b20000')
+                signin.find('.form__submit--parent.is--login').css('pointer-events', 'none')
+            }
 
             name.on('keyup', () => 
             {
                 nameVal = name.val()
             })
-
+            
+            phone.on('keyup', () => 
+            {
+                phoneVal = phone.val()
+            })
 
             submit.on('click', () => 
             {
@@ -109,6 +114,10 @@ export default class Auth
                     password: passwordVal,
                     username: nameVal,
                     connection: authConfig.connections.email,
+                    user_metadata: {
+                        name: nameVal,
+                        phone: phoneVal
+                    }
                 }, 
                 function (err, result) 
                 {
